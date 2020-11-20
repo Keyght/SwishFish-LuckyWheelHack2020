@@ -1,26 +1,8 @@
-//#region  Web Storage API
-// we can store money and name of player
-
-if (typeof Storage !== "undefined") {
-	if (localStorage.getItem("alreadyLoaded") == "true") {
-		// get
-		console.log("I Get Data from Storage.");
-	} else {
-		// set
-		localStorage.setItem("PlayerName", "Player");
-		localStorage.setItem("point", "0");
-		localStorage.setItem("alreadyLoaded", "true");
-		console.log("loaded");
-	}
-	document.getElementById("point").innerHTML = localStorage.getItem("point");
-	document.getElementById("PlayerName").innerHTML = localStorage.getItem(
-		"PlayerName"
-	);
-} else {
-	// cant load Storage Api
-	alert("Sorry! No Web Storage support..");
+function getRandomInt(max) {
+	return Math.floor(Math.random() * Math.floor(max));
 }
-//#endregion
+var map = getRandomInt(3);
+console.log("map after change 0  ", map);
 
 let cvs = document.getElementById("canvas"),
 	ctx = cvs.getContext("2d"),
@@ -31,13 +13,14 @@ let cvs = document.getElementById("canvas"),
 	(body_tag.style.minHeight = "512px"),
 	(canvas_tag.style.width = "100%"),
 	(canvas_tag.style.height = "100%");
-let bird,bg,fg,pipeUp= new Image(),
+let bird = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
 	pipeBottom = new Image();
-(bird.src = "images/fish.png"),
-	(bg.src = "images/water.png"),
+
+(bird.src = "images/fish/fish" + map + ".png"),
+	(bg.src = "images/water/water" + map + ".png"),
 	(pipeUp.src = "images/pipeUp.png"),
 	(pipeBottom.src = "images/pipeBottom.png"),
 	(bird.style.width = "38px"),
