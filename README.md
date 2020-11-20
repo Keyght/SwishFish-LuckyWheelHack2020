@@ -94,4 +94,4 @@ Add additional notes about how to deploy this on a live system.
 
 - [@More02](https://github.com/More02) - Idea & Initial work
 
-See also the list of [contributors](https://github.com/) who participated in this project.
+See also the list of [contributors](https://github.com/More02/Lucky_wheel_hack2020/graphs/contributors) who participated in this project.
