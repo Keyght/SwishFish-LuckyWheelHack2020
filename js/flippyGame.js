@@ -29,7 +29,7 @@ let bird = new Image(),
 	(bg.style.height = "100%");
 let fly = new Audio(),
 	score_audio = new Audio();
-(fly.src = "fly.mp3"), (score_audio.src = "score.mp3");
+(fly.src = "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
 let gap = 120;
 function moveUp() {
 	(yPos -= 35), fly.play();
