@@ -1,9 +1,7 @@
-function getRandomInt(max) {
-	return Math.floor(Math.random() * Math.floor(max));
+function getRandomInt(e) {
+	return Math.floor(Math.random() * Math.floor(e));
 }
 var map = getRandomInt(3);
-console.log("map after change 0  ", map);
-
 let cvs = document.getElementById("canvas"),
 	ctx = cvs.getContext("2d"),
 	body_tag = document.querySelector("body"),
@@ -17,24 +15,36 @@ let bird = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
+	coin = new Image(),
 	pipeBottom = new Image();
 
-(bird.src = "images/fish/fish" + map + ".png"),
-	(bg.src = "images/water/water" + map + ".png"),
-	(pipeUp.src = "images/pipeUp.png"),
-	(pipeBottom.src = "images/pipeBottom.png"),
+var protocol = location.protocol,
+	slashes = protocol.concat("//"),
+	host = slashes.concat(window.location.hostname);
+host += ":5501/";
+(bird.src = host + "images/fish/fish" + map + ".png"),
+	(bg.src = host + "images/water/water" + map + ".png"),
+	(pipeUp.src = host + "images/pipeUp.png"),
+	(pipeBottom.src = host + "images/pipeBottom.png"),
 	(bird.style.width = "38px"),
 	(bird.style.length = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
+coin.src = host + "images/coin.png";
 let fly = new Audio(),
 	score_audio = new Audio();
-(fly.src = "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
+(fly.src = host + "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
 let gap = 120;
 function moveUp() {
 	(yPos -= 35), fly.play();
 }
-document.addEventListener("keydown", moveUp);
+function TouchStart(e) {
+	(yPos -= 35), fly.play();
+}
+document.addEventListener("touchstart", function (e) {
+	TouchStart(e);
+}),
+	document.addEventListener("keydown", moveUp);
 let pipe = [];
 pipe[0] = { x: cvs.width, y: 0 };
 let score = 0,
@@ -66,5 +76,6 @@ function draw() {
 		(ctx.font = "24px Arial"),
 		ctx.fillText("Счет: " + score, 10, cvs.height - 20),
 		requestAnimationFrame(draw);
+	ctx.drawImage(coin, pipe[i].x, pipe[i].y + pipeUp.height + gap / 2);
 }
 pipeBottom.onload = draw;
