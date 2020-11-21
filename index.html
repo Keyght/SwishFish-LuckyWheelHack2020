@@ -113,15 +113,11 @@
 	switch(window.orientation) { 
         case -90:
         case 90:
-          // alert('landscape');
-          $('#portrait').css({display:'none'});
-          $('#landscape').css({display:'block'});
+          alert("Please return to the vertical orientation");
 
           break;
         default:
-          // alert('portrait');
-          $('#portrait').css({display:'block'});
-          $('#landscape').css({display:'none'});
+          alert("Please return to the vertical orientation");
           break;
     }
 }
