@@ -16,7 +16,6 @@ let bird = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
 	pipeBottom = new Image();
-let coin = new Image();
 var protocol = location.protocol,
 	slashes = protocol.concat("//"),
 	//host = slashes.concat(window.location.hostname);
@@ -30,7 +29,6 @@ host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	(bird.style.length = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
-coin.src = host+"images/coin.png";
 let fly = new Audio(),
 	score_audio = new Audio();
 (fly.src = host + "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
@@ -57,8 +55,7 @@ function draw() {
 	ctx.drawImage(bg, 0, 0);
 	for (let e = 0; e < pipe.length; e++) {
 		ctx.drawImage(pipeUp, pipe[e].x, pipe[e].y),
-			ctx.drawImage(pipeBottom, pipe[e].x, pipe[e].y + pipeUp.height + gap),
-				ctx.drawImage(coin, pipe[e].x, pipe[e].y + pipeUp.height + gap/2);
+			ctx.drawImage(pipeBottom, pipe[e].x, pipe[e].y + pipeUp.height + gap);
 				
 			pipe[e].x--,
 			125 == pipe[e].x &&
@@ -72,21 +69,9 @@ function draw() {
 					yPos + bird.height >= pipe[e].y + pipeUp.height + gap)) ||
 				yPos + bird.height >= cvs.height - fg.height) &&
 				location.reload();
-			
-			
-			if(xPos + bird.width >= pipe[e].x
-			&& xPos <= pipe[e].x + coin.width
-			&& (yPos <= pipe[e].y + coin.height
-			|| yPos + bird.height >= pipe[e].y + coin.height + gap)) {
-				q=1;
-			}
 			if(pipe[e].x == 5) {
 				score++;
 				score_audio.play();
-					if (q==1) {
-						score2++; 
-						q=0; 
-					}
 			}
 			
 	}
@@ -96,9 +81,8 @@ function draw() {
 		(ctx.fillStyle = "#FFFFFF"),
 		(ctx.font = "24px Arial"),
 		ctx.fillText("Счет: " + score, 10, cvs.height - 20),
-		ctx.fillText("Монеты: " + score2, 10, cvs.height - 50),
 		requestAnimationFrame(draw);
-	ctx.drawImage(coin, pipe[i].x, pipe[i].y + pipeUp.height + gap / 2);
+
 	
 }
 pipeBottom.onload = draw;
