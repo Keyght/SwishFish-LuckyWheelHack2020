@@ -35,6 +35,7 @@ if (typeof Storage !== "undefined") {
 function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
-	window.location.href = "/Game.html";
+	host = "https://more02.github.io/Lucky_wheel_hack2020/";
+	window.location.href = host + "/Game.html";
 	localStorage.setItem("map", toString(map));
 }

@@ -20,17 +20,18 @@ let bird = new Image(),
 
 var protocol = location.protocol,
 	slashes = protocol.concat("//"),
-	host = slashes.concat(window.location.hostname);
-host += ":5501/";
-(bird.src = "images/fish/fish" + map + ".png"),
-	(bg.src = "images/water/water" + map + ".png"),
-	(pipeUp.src = "images/pipeUp.png"),
-	(pipeBottom.src = "images/pipeBottom.png"),
+	//host = slashes.concat(window.location.hostname);
+//host += ":5501/";
+host = "https://more02.github.io/Lucky_wheel_hack2020/";
+(bird.src = host + "images/fish/fish" + map + ".png"),
+	(bg.src = host + "images/water/water" + map + ".png"),
+	(pipeUp.src = host + "images/pipeUp.png"),
+	(pipeBottom.src =  host+"images/pipeBottom.png"),
 	(bird.style.width = "38px"),
 	(bird.style.length = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%"),
-	(coin.src = "images/coin.png");
+	(coin.src = host+"images/coin.png");
 let fly = new Audio(),
 	score_audio = new Audio();
 (fly.src = host + "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
