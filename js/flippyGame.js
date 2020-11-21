@@ -31,7 +31,7 @@ let bird = new Image(),
 	(pipeUp.src = "images/pipeUp.png"),
 	(pipeBottom.src = "images/pipeBottom.png"),
 	(bird.style.width = "38px"),
-	(bird.style.length = "26px"),
+	(bird.style.height = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
 
@@ -46,14 +46,16 @@ let bY = 150;
 let gravity = 3;
 
 let score = 0;
-
+let shown_alerted=0;
 // audio files
 
 let fly = new Audio();
 let scor = new Audio();
+let fall = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
+scor.src = "sounds/fall.mp3";
 
 // on key down and press
 function moveUp() {
@@ -74,7 +76,14 @@ pipe[0] = {
 	x: cvs.width,
 	y: 0,
 };
-
+function show_alert(shown_alerted) {
+	if (shown_alerted==0) {
+		alert ("Oh no! You crashed");
+	}
+	else {
+		shown_alerted=1;
+	}
+}
 function draw() {
 	ctx.drawImage(bg, 0, 0);
 
@@ -101,6 +110,10 @@ function draw() {
 					bY + bird.height >= pipe[i].y + constant)) ||
 			bY + bird.height >= cvs.height - fg.height
 		) {
+			if (shown_alerted!=1) {
+				setTimeout(show_alert(shown_alerted), 1);
+			}
+			shown_alerted = 1;
 			location.reload(); // reload the page
 		}
 
