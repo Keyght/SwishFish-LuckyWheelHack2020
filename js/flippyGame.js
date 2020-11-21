@@ -1,7 +1,7 @@
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
-
+//changes for git
 var map = getRandomInt(3);
 
 let cvs = document.getElementById("canvas"),
