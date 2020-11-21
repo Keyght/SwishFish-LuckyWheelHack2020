@@ -55,7 +55,7 @@ function draw() {
 	ctx.drawImage(bg, 0, 0);
 	for (let e = 0; e < pipe.length; e++) {
 		ctx.drawImage(pipeUp, pipe[e].x, pipe[e].y),
-			ctx.drawImage(pipeBottom, pipe[e].x, pipe[e].y + pipeUp.height + gap);
+			ctx.drawImage(pipeBottom, pipe[e].x, pipe[e].y + pipeUp.height + gap),
 				
 			pipe[e].x--,
 			125 == pipe[e].x &&
