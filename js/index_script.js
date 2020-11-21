@@ -81,9 +81,8 @@ function changeName(name) {
 	localStorage.setItem("name", name);
 	console.log("changeName -> name", name);
 }
-//#region pasteApi
+//#region clipboard
 function pasteApi() {
-	console.log("i am work");
 	navigator.clipboard
 		.readText()
 		.then(
