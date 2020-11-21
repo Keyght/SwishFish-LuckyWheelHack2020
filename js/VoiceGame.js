@@ -1,3 +1,7 @@
+var paused = false;
+
+
+
 //#region WebAudio
 var context, logo, myElements, analyser, src, height;
 var div = document.querySelector("#audioVisual");
@@ -50,6 +54,44 @@ function loop() {
 	// console.log("loop -> power", power);
 }
 //#endregion
+
+
+
+//Page Visibility API
+var hidden, visibilityChange;
+if (typeof document.hidden !== "undefined") {
+	hidden = "hidden";
+	visibilityChange = "visibilitychange";
+} else if (typeof document.msHidden !== "undefined") {
+	hidden = "msHidden";
+	visibilityChange = "msvisibilitychange";
+} else if (typeof document.webkitHidden !== "undefined") {
+	hidden = "webkitHidden";
+	visibilityChange = "webkitvisibilitychange";
+}
+
+var canvas_var = document.getElementById("canvas");
+
+
+function handleVisibilityChange() {
+	if (document.visibilityState === "hidden")
+		paused = true;
+	else paused = false;
+	console.log("game to pause:" + paused);
+}
+
+
+if (typeof document.addEventListener === "undefined" || hidden === undefined) {
+	alert(
+		"This web requires a browser, such as Google Chrome or Firefox, that supports the Page Visibility API."
+	);
+} else {
+	document.addEventListener(visibilityChange, handleVisibilityChange, false);
+}
+//End of Page Visibility API
+
+
+
 
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
@@ -124,7 +166,8 @@ function show_alert(score) {
 	alert("Game over!\nyour points: " + score);
 }
 function draw() {
-	ctx.drawImage(bg, 0, 0);
+	if (paused!=true) {
+		ctx.drawImage(bg, 0, 0);
 	for (let i = 0; i < pipe.length; i++) {
 		constant = pipeUp.height + gap;
 		ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
@@ -179,4 +222,6 @@ function draw() {
 	ctx.font = "20px Verdana";
 	ctx.fillText("Score : " + score, 10, cvs.height - 20);
 	requestAnimationFrame(draw);
+	}
+	
 }
