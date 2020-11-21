@@ -184,11 +184,11 @@ function draw() {
 			// detect collision
 
 			if (
-				(bX + Player.width >= pipe[i].x &&
+				(bX + bird.width >= pipe[i].x &&
 					bX <= pipe[i].x + pipeUp.width &&
-					(bY <= pipe[i].y + pipeUp.height ||
-						bY + Player.height >= pipe[i].y + constant)) ||
-				bY + Player.height >= cvs.height - fg.height
+					(bY + 17 <= pipe[i].y + pipeUp.height ||
+						bY + bird.height - 5 >= pipe[i].y + constant)) ||
+				bY + bird.height >= cvs.height - fg.height
 			) {
 				setTimeout(show_alert(score), 1);
 				location.reload();
