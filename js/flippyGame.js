@@ -1,8 +1,11 @@
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
+
+
+
 //changes for git
-var map = getRandomInt(3);
+let map = getRandomInt(3);
 
 let cvs = document.getElementById("canvas"),
 	ctx = cvs.getContext("2d"),
@@ -34,20 +37,20 @@ let bird = new Image(),
 
 // some variables
 
-var gap = 85;
-var constant;
+let gap = 95;
+let constant;
 
-var bX = 10;
-var bY = 150;
+let bX = 10;
+let bY = 150;
 
-var gravity = 1.5;
+let gravity = 3;
 
-var score = 0;
+let score = 0;
 
 // audio files
 
-var fly = new Audio();
-var scor = new Audio();
+let fly = new Audio();
+let scor = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
@@ -56,6 +59,7 @@ scor.src = "sounds/score.mp3";
 function moveUp() {
 	bY -= 25;
 	fly.play();
+	gravity = 3
 }
 document.addEventListener("keydown", moveUp);
 document.addEventListener("touchstart", function (e) {
@@ -64,7 +68,7 @@ document.addEventListener("touchstart", function (e) {
 
 // pipe coordinates
 
-var pipe = [];
+let pipe = [];
 
 pipe[0] = {
 	x: cvs.width,
@@ -74,14 +78,14 @@ pipe[0] = {
 function draw() {
 	ctx.drawImage(bg, 0, 0);
 
-	for (var i = 0; i < pipe.length; i++) {
+	for (let i = 0; i < pipe.length; i++) {
 		constant = pipeUp.height + gap;
 		ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
 		ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + constant);
 
 		pipe[i].x--;
 
-		if (pipe[i].x == 125) {
+		if (pipe[i].x == 70) {
 			pipe.push({
 				x: cvs.width,
 				y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height,
@@ -109,7 +113,8 @@ function draw() {
 
 	ctx.drawImage(bird, bX, bY);
 	if (bY < 500) {
-		bY += gravity;
+		bY += Math.log(gravity);
+		gravity*=1.05
 		console.log("reload");
 		ctx.fillStyle = "#fff";
 		ctx.font = "20px Verdana";

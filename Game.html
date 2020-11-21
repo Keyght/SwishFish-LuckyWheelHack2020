@@ -7,9 +7,14 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="" />
+		<style>
+		.disable-dbl-tap-zoom {
+			touch-action: manipulation;
+		}
+		</style>
 	</head>
 	<body>
-		<canvas id="canvas" width="288" height="512"></canvas>
+		<canvas id="canvas" width="288" height="512" class="disable-dbl-tap-zoom"></canvas>
 		<!-- <script src="js/flippyGame.js"></script> -->
 		<script src="js/flippyGame.js"></script>
 	</body>
