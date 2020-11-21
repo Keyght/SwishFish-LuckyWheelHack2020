@@ -108,13 +108,14 @@ function draw() {
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
 
 	ctx.drawImage(bird, bX, bY);
-
-	bY += gravity;
-
-	ctx.fillStyle = "#000";
-	ctx.font = "20px Verdana";
-	ctx.fillText("Score : " + score, 10, cvs.height - 20);
-
-	requestAnimationFrame(draw);
+	if (bY < 500) {
+		bY += gravity;
+		console.log("reload");
+		ctx.fillStyle = "#fff";
+		ctx.font = "20px Verdana";
+		ctx.fillText("points : " + score, 10, cvs.height - 20);
+		requestAnimationFrame(draw);
+	} else {
+	}
 }
 pipeBottom.onload = draw;
