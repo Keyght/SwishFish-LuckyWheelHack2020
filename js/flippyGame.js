@@ -2,7 +2,7 @@ function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
 function getRandomArbitrary(min, max) {
-  return Math.random() * (max - min) + min;
+	return Math.random() * (max - min) + min;
 }
 
 //changes for git
@@ -38,7 +38,6 @@ let bird = new Image(),
 
 // some variables
 let cnst;
-
 let gap = 100;
 let constant;
 
@@ -48,7 +47,6 @@ let bY = 150;
 let gravity = 3;
 
 let score = 0;
-let shown_alerted=0;
 // audio files
 
 let fly = new Audio();
@@ -63,7 +61,7 @@ fall.src = "sounds/fall.mp3";
 function moveUp() {
 	bY -= 25;
 	fly.play();
-	gravity = 3
+	gravity = 3;
 }
 document.addEventListener("keydown", moveUp);
 document.addEventListener("touchstart", function (e) {
@@ -78,14 +76,10 @@ pipe[0] = {
 	x: cvs.width,
 	y: -bY,
 };
-function show_alert(shown_alerted, score) {
-	if (shown_alerted==0) {
-		fall.play();
-		alert("Game over!\nyour points: " + score);
-	}
-	else {
-		shown_alerted=1;
-	}
+function show_alert(score) {
+	// died sound
+	fall.play();
+	alert("Game over!\nyour points: " + score);
 }
 function draw() {
 	ctx.drawImage(bg, 0, 0);
@@ -97,16 +91,19 @@ function draw() {
 
 		pipe[i].x--;
 
-		cnst = getRandomArbitrary(-150,150);
-		if (pipe[i].x == 70 && pipe[i].y + cnst < 0 && pipe[i].y + cnst >-344) {
+		cnst = getRandomArbitrary(-150, 150);
+		if (pipe[i].x == 70 && pipe[i].y + cnst < 0 && pipe[i].y + cnst > -344) {
 			pipe.push({
 				x: cvs.width,
-				y: pipe[i].y + cnst
+				y: pipe[i].y + cnst,
 			});
-		} else if (pipe[i].x == 70 && (pipe[i].y + cnst >= 0 || pipe[i].y + cnst <= -344)) {
+		} else if (
+			pipe[i].x == 70 &&
+			(pipe[i].y + cnst >= 0 || pipe[i].y + cnst <= -344)
+		) {
 			pipe.push({
 				x: cvs.width,
-				y: pipe[i].y - cnst
+				y: pipe[i].y - cnst,
 			});
 		}
 
@@ -119,13 +116,10 @@ function draw() {
 					bY + bird.height >= pipe[i].y + constant)) ||
 			bY + bird.height >= cvs.height - fg.height
 		) {
-			if (shown_alerted!=1) {
-				setTimeout(show_alert(shown_alerted, score), 1);
-			}
-			shown_alerted = 1;
-			location.reload(); // reload the page
+			show_alert(score, location);
+			location.reload();
+			return;
 		}
-
 		if (pipe[i].x == 5) {
 			score++;
 			scor.play();
@@ -136,13 +130,11 @@ function draw() {
 	ctx.drawImage(bird, bX, bY);
 	if (bY < 500) {
 		bY += Math.log(gravity);
-		gravity*=1.05
-		console.log("reload");
+		gravity *= 1.05;
 		ctx.fillStyle = "#fff";
 		ctx.font = "20px Verdana";
 		ctx.fillText("points : " + score, 10, cvs.height - 20);
 		requestAnimationFrame(draw);
-	} else {
 	}
 }
 pipeBottom.onload = draw;
