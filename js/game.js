@@ -86,11 +86,26 @@ let scor = new Audio();
 let fall = new Audio();
 let music = new Audio();
 
+let basesound = new Audio();
+let basesound1 = new Audio();
+let basesound2 = new Audio();
+let basesound3 = new Audio();
+
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 fall.src = "sounds/fall.mp3";
 music.src = "sounds/music1.mp3";
 music.play();
+
+basesound1.src = "sounds/basesound1.mp3";
+basesound2.src = "sounds/basesound2.mp3";
+basesound3.src = "sounds/basesound3.mp3";
+
+//let number_sound = getRandomArbitrary(1, 3);
+//if (number_sound==1) {basesound=basesound1;}
+//else if (number_sound==2) {basesound=basesound2;}
+//else if (number_sound==3) {basesound=basesound3;}
+//basesound.play();
 
 // on key down and press
 
@@ -122,11 +137,18 @@ function show_alert(score) {
 	music.pause();
 	alert("Game over!\nyour points: " + score);
 }
+//Web Workers API
+		//worker = new Worker("js/MusicWorker.js");
+		//worker.onmessage = receivedWorkerMessage;
+		//worker.postMessage(2);
+		//function receivedWorkerMessage(event) {
+		//}
+//End Web Workers API
 
 function draw() {
 	if (paused != true) {
+		basesound.play();
 		ctx.drawImage(bg, 0, 0);
-
 		for (let i = 0; i < pipe.length; i++) {
 			constant = pipeUp.height + gap;
 			ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
