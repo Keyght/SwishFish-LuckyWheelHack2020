@@ -12,7 +12,7 @@ window.onclick = function () {
 	for (var i = 0; i < num; i++) {
 		logo = document.createElement("div");
 		logo.className = "logo";
-		logo.style.background = "red";
+		logo.style.background = "white";
 		logo.style.minWidth = width + "px";
 		div.appendChild(logo);
 	}
@@ -179,9 +179,9 @@ function draw() {
 		}
 	}
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
+	// 450 - Max
+	// power/MaxPower<1
 	bY = 450 - (power / MaxPower) * 450;
-	console.log("draw -> power", power);
-	console.log("draw -> bY", bY);
 	ctx.drawImage(bird, bX, bY);
 	if (bY < 475) {
 		bY += Math.log(gravity);
