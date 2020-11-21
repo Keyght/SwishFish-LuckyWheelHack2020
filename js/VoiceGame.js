@@ -123,7 +123,6 @@ function show_alert(score) {
 	fall.play();
 	alert("Game over!\nyour points: " + score);
 }
-var buff = 0;
 function draw() {
 	ctx.drawImage(bg, 0, 0);
 	for (let i = 0; i < pipe.length; i++) {
@@ -171,8 +170,9 @@ function draw() {
 	// power/MaxPower<1
 	ctx.drawImage(bird, bX, bY);
 	if (bY < 475) bY += gravity;
+	const diff = power / MaxPower;
 	if (bY > 0) {
-		if (power / MaxPower > 0) bY -= (power / MaxPower) * 5;
+		if (diff > 0) bY -= diff * 5;
 	}
 
 	ctx.fillStyle = "#fff";
