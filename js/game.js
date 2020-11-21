@@ -1,7 +1,5 @@
 var paused = false;
 
-
-
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
@@ -24,14 +22,11 @@ if (typeof document.hidden !== "undefined") {
 
 var canvas_var = document.getElementById("canvas");
 
-
 function handleVisibilityChange() {
-	if (document.visibilityState === "hidden")
-		paused = true;
+	if (document.visibilityState === "hidden") paused = true;
 	else paused = false;
 	console.log("game to pause:" + paused);
 }
-
 
 if (typeof document.addEventListener === "undefined" || hidden === undefined) {
 	alert(
@@ -41,7 +36,6 @@ if (typeof document.addEventListener === "undefined" || hidden === undefined) {
 	document.addEventListener(visibilityChange, handleVisibilityChange, false);
 }
 //End of Page Visibility API
-
 
 //changes for git
 let map = getRandomInt(3);
@@ -119,9 +113,10 @@ function show_alert(score) {
 	fall.play();
 	alert("Game over!\nyour points: " + score);
 }
+
 function draw() {
-	if (paused!=true) {
-	ctx.drawImage(bg, 0, 0);
+	if (paused != true) {
+		ctx.drawImage(bg, 0, 0);
 
 		for (let i = 0; i < pipe.length; i++) {
 			constant = pipeUp.height + gap;
