@@ -9,7 +9,11 @@ const ro = new ResizeObserver((entries) => {
 		}
 	}
 });
-
+let music = new Audio();
+music.src = "sounds/music0.mp3";
+music.value = 0.2;
+console.log(music.value);
+music.play();
 //Geolocation API
 const status = document.querySelector("#status");
 const mapLink = document.querySelector("#map-link");
@@ -89,5 +93,4 @@ function pasteApi() {
 			(clipText) => (document.getElementById("name").placeholder = clipText)
 		);
 }
-
 //#endregion

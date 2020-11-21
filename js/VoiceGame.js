@@ -137,11 +137,13 @@ let score = 0;
 let fly = new Audio();
 let scor = new Audio();
 let fall = new Audio();
+let music = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 fall.src = "sounds/fall.mp3";
-
+music.src = "sounds/music1.mp3";
+music.play();
 // pipe coordinates
 
 let pipe = [];
@@ -153,6 +155,7 @@ pipe[0] = {
 function show_alert(score) {
 	// died sound
 	fall.play();
+	music.pause();
 	alert("Game over!\nyour points: " + score);
 }
 function draw() {
@@ -184,8 +187,8 @@ function draw() {
 			// detect collision
 
 			if (
-				(bX + bird.width-10 >= pipe[i].x &&
-					bX <= pipe[i].x + pipeUp.width+10 &&
+				(bX + bird.width - 10 >= pipe[i].x &&
+					bX <= pipe[i].x + pipeUp.width + 10 &&
 					(bY + 17 <= pipe[i].y + pipeUp.height ||
 						bY + bird.height - 5 >= pipe[i].y + constant)) ||
 				bY + bird.height >= cvs.height - fg.height
