@@ -106,18 +106,18 @@ let cvs = document.getElementById("canvas"),
 
 // host = "https://more02.github.io/Lucky_wheel_hack2020/";
 
-let Player = new Image(),
+let bird = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
 	pipeBottom = new Image();
 
-(Player.src = "images/fish/fish" + map + ".png"),
+(bird.src = "images/fish/fish" + map + ".png"),
 	(bg.src = "images/water/water" + map + ".png"),
 	(pipeUp.src = "images/pipeUp.png"),
 	(pipeBottom.src = "images/pipeBottom.png"),
-	(Player.style.width = "38px"),
-	(Player.style.height = "26px"),
+	(bird.style.width = "38px"),
+	(bird.style.height = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
 
@@ -201,7 +201,7 @@ function draw() {
 		}
 		ctx.drawImage(fg, 0, cvs.height - fg.height);
 		// power/MaxPower<1
-		ctx.drawImage(Player, bX, bY);
+		ctx.drawImage(bird, bX, bY);
 		if (bY < 475) bY += gravity;
 		const diff = power / MaxPower;
 		if (bY > 0) {
