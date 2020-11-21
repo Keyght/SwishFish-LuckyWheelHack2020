@@ -52,14 +52,15 @@ var scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-// on key down
-
-document.addEventListener("keydown", moveUp);
-
+// on key down and press
 function moveUp() {
 	bY -= 25;
 	fly.play();
 }
+document.addEventListener("keydown", moveUp);
+document.addEventListener("touchstart", function (e) {
+	moveUp(e);
+});
 
 // pipe coordinates
 
@@ -114,11 +115,6 @@ function draw() {
 	ctx.font = "20px Verdana";
 	ctx.fillText("Score : " + score, 10, cvs.height - 20);
 
-	// if (yPos > 500) {
-	// 	console.log("yPos" + yPos);
-
-	// 	location.reload();
-	// }
 	requestAnimationFrame(draw);
 }
 pipeBottom.onload = draw;
