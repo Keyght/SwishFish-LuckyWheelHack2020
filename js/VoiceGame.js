@@ -1,7 +1,5 @@
 var paused = false;
 
-
-
 //#region WebAudio
 var context, logo, myElements, analyser, src, height;
 var div = document.querySelector("#audioVisual");
@@ -55,8 +53,6 @@ function loop() {
 }
 //#endregion
 
-
-
 //Page Visibility API
 var hidden, visibilityChange;
 if (typeof document.hidden !== "undefined") {
@@ -72,14 +68,11 @@ if (typeof document.hidden !== "undefined") {
 
 var canvas_var = document.getElementById("canvas");
 
-
 function handleVisibilityChange() {
-	if (document.visibilityState === "hidden")
-		paused = true;
+	if (document.visibilityState === "hidden") paused = true;
 	else paused = false;
 	console.log("game to pause:" + paused);
 }
-
 
 if (typeof document.addEventListener === "undefined" || hidden === undefined) {
 	alert(
@@ -89,9 +82,6 @@ if (typeof document.addEventListener === "undefined" || hidden === undefined) {
 	document.addEventListener(visibilityChange, handleVisibilityChange, false);
 }
 //End of Page Visibility API
-
-
-
 
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
@@ -116,18 +106,18 @@ let cvs = document.getElementById("canvas"),
 
 // host = "https://more02.github.io/Lucky_wheel_hack2020/";
 
-let bird = new Image(),
+let Player = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
 	pipeBottom = new Image();
 
-(bird.src = "images/fish/fish" + map + ".png"),
+(Player.src = "images/fish/fish" + map + ".png"),
 	(bg.src = "images/water/water" + map + ".png"),
 	(pipeUp.src = "images/pipeUp.png"),
 	(pipeBottom.src = "images/pipeBottom.png"),
-	(bird.style.width = "38px"),
-	(bird.style.height = "26px"),
+	(Player.style.width = "38px"),
+	(Player.style.height = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
 
@@ -166,62 +156,61 @@ function show_alert(score) {
 	alert("Game over!\nyour points: " + score);
 }
 function draw() {
-	if (paused!=true) {
+	if (paused != true) {
 		ctx.drawImage(bg, 0, 0);
-	for (let i = 0; i < pipe.length; i++) {
-		constant = pipeUp.height + gap;
-		ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
-		ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + constant);
+		for (let i = 0; i < pipe.length; i++) {
+			constant = pipeUp.height + gap;
+			ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
+			ctx.drawImage(pipeBottom, pipe[i].x, pipe[i].y + constant);
 
-		pipe[i].x--;
+			pipe[i].x--;
 
-		cnst = getRandomArbitrary(-150, 150);
-		if (pipe[i].x == 70 && pipe[i].y + cnst < 0 && pipe[i].y + cnst > -344) {
-			pipe.push({
-				x: cvs.width,
-				y: pipe[i].y + cnst,
-			});
-		} else if (
-			pipe[i].x == 70 &&
-			(pipe[i].y + cnst >= 0 || pipe[i].y + cnst <= -344)
-		) {
-			pipe.push({
-				x: cvs.width,
-				y: pipe[i].y - cnst,
-			});
+			cnst = getRandomArbitrary(-150, 150);
+			if (pipe[i].x == 70 && pipe[i].y + cnst < 0 && pipe[i].y + cnst > -344) {
+				pipe.push({
+					x: cvs.width,
+					y: pipe[i].y + cnst,
+				});
+			} else if (
+				pipe[i].x == 70 &&
+				(pipe[i].y + cnst >= 0 || pipe[i].y + cnst <= -344)
+			) {
+				pipe.push({
+					x: cvs.width,
+					y: pipe[i].y - cnst,
+				});
+			}
+
+			// detect collision
+
+			if (
+				(bX + Player.width >= pipe[i].x &&
+					bX <= pipe[i].x + pipeUp.width &&
+					(bY <= pipe[i].y + pipeUp.height ||
+						bY + Player.height >= pipe[i].y + constant)) ||
+				bY + Player.height >= cvs.height - fg.height
+			) {
+				setTimeout(show_alert(score), 1);
+				location.reload();
+				return;
+			}
+			if (pipe[i].x == 5) {
+				score++;
+				scor.play();
+			}
+		}
+		ctx.drawImage(fg, 0, cvs.height - fg.height);
+		// power/MaxPower<1
+		ctx.drawImage(Player, bX, bY);
+		if (bY < 475) bY += gravity;
+		const diff = power / MaxPower;
+		if (bY > 0) {
+			if (diff > 0) bY -= diff * 5;
 		}
 
-		// detect collision
-
-		if (
-			(bX + bird.width >= pipe[i].x &&
-				bX <= pipe[i].x + pipeUp.width &&
-				(bY <= pipe[i].y + pipeUp.height ||
-					bY + bird.height >= pipe[i].y + constant)) ||
-			bY + bird.height >= cvs.height - fg.height
-		) {
-			setTimeout(show_alert(score), 1);
-			location.reload();
-			return;
-		}
-		if (pipe[i].x == 5) {
-			score++;
-			scor.play();
-		}
+		ctx.fillStyle = "#fff";
+		ctx.font = "20px Verdana";
+		ctx.fillText("Score : " + score, 10, cvs.height - 20);
+		requestAnimationFrame(draw);
 	}
-	ctx.drawImage(fg, 0, cvs.height - fg.height);
-	// power/MaxPower<1
-	ctx.drawImage(bird, bX, bY);
-	if (bY < 475) bY += gravity;
-	const diff = power / MaxPower;
-	if (bY > 0) {
-		if (diff > 0) bY -= diff * 5;
-	}
-
-	ctx.fillStyle = "#fff";
-	ctx.font = "20px Verdana";
-	ctx.fillText("Score : " + score, 10, cvs.height - 20);
-	requestAnimationFrame(draw);
-	}
-	
 }

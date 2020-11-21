@@ -53,18 +53,18 @@ let cvs = document.getElementById("canvas"),
 
 // host = "https://more02.github.io/Lucky_wheel_hack2020/";
 
-let bird = new Image(),
+let Player = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
 	pipeBottom = new Image();
 
-(bird.src = "images/fish/fish" + map + ".png"),
+(Player.src = "images/fish/fish" + map + ".png"),
 	(bg.src = "images/water/water" + map + ".png"),
 	(pipeUp.src = "images/pipeUp.png"),
 	(pipeBottom.src = "images/pipeBottom.png"),
-	(bird.style.width = "38px"),
-	(bird.style.height = "26px"),
+	(Player.style.width = "38px"),
+	(Player.style.height = "26px"),
 	(bg.style.width = "100%"),
 	(bg.style.height = "100%");
 
@@ -151,11 +151,11 @@ function draw() {
 			// detect collision
 
 			if (
-				(bX + bird.width >= pipe[i].x &&
+				(bX + Player.width >= pipe[i].x &&
 					bX <= pipe[i].x + pipeUp.width &&
 					(bY <= pipe[i].y + pipeUp.height ||
-						bY + bird.height >= pipe[i].y + constant)) ||
-				bY + bird.height >= cvs.height - fg.height
+						bY + Player.height >= pipe[i].y + constant)) ||
+				bY + Player.height >= cvs.height - fg.height
 			) {
 				setTimeout(show_alert(score), 1);
 				location.reload();
@@ -168,7 +168,7 @@ function draw() {
 		}
 		ctx.drawImage(fg, 0, cvs.height - fg.height);
 
-		ctx.drawImage(bird, bX, bY);
+		ctx.drawImage(Player, bX, bY);
 		if (bY < 500) {
 			bY += Math.log(gravity);
 			gravity *= 1.05;
