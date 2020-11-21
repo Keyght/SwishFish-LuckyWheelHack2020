@@ -81,7 +81,7 @@ pipe[0] = {
 function show_alert(shown_alerted, score) {
 	if (shown_alerted==0) {
 		fall.play();
-		alert("Game over!\nyour points: " + score);
+		alert("Game over!\nYour points: " + score);
 	}
 	else {
 		shown_alerted=1;
@@ -140,7 +140,7 @@ function draw() {
 		console.log("reload");
 		ctx.fillStyle = "#fff";
 		ctx.font = "20px Verdana";
-		ctx.fillText("points : " + score, 10, cvs.height - 20);
+		ctx.fillText("Score : " + score, 10, cvs.height - 20);
 		requestAnimationFrame(draw);
 	} else {
 	}
