@@ -90,14 +90,21 @@ scor.src = "sounds/score.mp3";
 fall.src = "sounds/fall.mp3";
 
 // on key down and press
-function moveUp() {
-	bY -= 25;
-	fly.play();
+
+function moveUp(time) {
+	if (time == 8) fly.play();
+	bY -= 8 - time;
+	console.log("moveUp -> time", time);
+	console.log("moveUp -> bY", bY);
+	if (time > 0)
+		setTimeout(() => {
+			moveUp(--time);
+		}, 15);
 	gravity = 3;
 }
-document.addEventListener("keydown", moveUp);
+document.addEventListener("keydown", moveUp(5));
 document.addEventListener("touchstart", function (e) {
-	moveUp(e);
+	moveUp(8);
 });
 
 // pipe coordinates
