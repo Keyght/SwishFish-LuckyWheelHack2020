@@ -116,7 +116,7 @@ function draw() {
 					bY + bird.height >= pipe[i].y + constant)) ||
 			bY + bird.height >= cvs.height - fg.height
 		) {
-			show_alert(score, location);
+			show_alert(score);
 			location.reload();
 			return;
 		}
