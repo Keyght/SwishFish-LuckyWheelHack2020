@@ -1,3 +1,59 @@
+//#region WebAudio
+var context, logo, myElements, analyser, src, height;
+var div = document.querySelector("#audioVisual");
+var num = 32;
+var array = new Uint8Array(num * 2);
+var width = 10;
+var body = document.querySelector("body");
+window.onclick = function () {
+	if (context) return;
+	draw();
+	body.querySelector("#audio").remove();
+	for (var i = 0; i < num; i++) {
+		logo = document.createElement("div");
+		logo.className = "logo";
+		logo.style.background = "red";
+		logo.style.minWidth = width + "px";
+		div.appendChild(logo);
+	}
+	myElements = document.getElementsByClassName("logo");
+	context = new AudioContext();
+	analyser = context.createAnalyser();
+
+	navigator.mediaDevices
+		.getUserMedia({
+			audio: true,
+		})
+		.then((stream) => {
+			src = context.createMediaStreamSource(stream);
+			src.connect(analyser);
+			loop();
+		})
+		.catch((error) => {
+			alert(error + "\r\nRefused. The page will be updated!");
+			location.reload();
+		});
+};
+var MaxPower = 7500;
+var power = 0;
+function loop() {
+	window.requestAnimationFrame(loop);
+	analyser.getByteFrequencyData(array);
+	power = 0;
+	for (var i = 0; i < num; i++) {
+		power += height;
+		height = array[i + num];
+		myElements[i].style.minHeight = height + "px";
+		myElements[i].style.opacity = 0.008 * height;
+	}
+
+	// console.log("loop -> power", power);
+}
+//#endregion
+
+//#region game
+// fix game zooom
+
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
@@ -90,15 +146,15 @@ function draw() {
 
 		// detect collision
 
-		if (
-			(bX + bird.width >= pipe[i].x &&
-				bX <= pipe[i].x + pipeUp.width &&
-				(bY <= pipe[i].y + pipeUp.height ||
-					bY + bird.height >= pipe[i].y + constant)) ||
-			bY + bird.height >= cvs.height - fg.height
-		) {
-			location.reload(); // reload the page
-		}
+		// if (
+		// 	(bX + bird.width >= pipe[i].x &&
+		// 		bX <= pipe[i].x + pipeUp.width &&
+		// 		(bY <= pipe[i].y + pipeUp.height ||
+		// 			bY + bird.height >= pipe[i].y + constant)) ||
+		// 	bY + bird.height >= cvs.height - fg.height
+		// ) {
+		// 	location.reload(); // reload the page
+		// }
 
 		if (pipe[i].x == 5) {
 			score++;
@@ -106,16 +162,18 @@ function draw() {
 		}
 	}
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
-
 	ctx.drawImage(bird, bX, bY);
-	if (bY < 500) {
+	// console.log((bY = 500 - (power / MaxPower) * 500));
+	result = 500 - (power / MaxPower) * 500;
+	bY = 500 - (power / MaxPower) * 500;
+	if (bY < 475) {
 		bY += gravity;
-		console.log("reload");
-		ctx.fillStyle = "#fff";
-		ctx.font = "20px Verdana";
-		ctx.fillText("points : " + score, 10, cvs.height - 20);
-		requestAnimationFrame(draw);
-	} else {
 	}
+
+	ctx.fillStyle = "#fff";
+	ctx.font = "20px Roboto";
+	ctx.fillText("points : " + score, 10, cvs.height - 20);
+	requestAnimationFrame(draw);
 }
-pipeBottom.onload = draw;
+
+//#endregion
