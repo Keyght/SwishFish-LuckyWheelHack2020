@@ -1,0 +1,223 @@
+body {
+	background: #cce4f7;
+	font-family: Roboto;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: top;
+	width: 100%;
+	height: 100%;
+	font-family: "Roboto", sans-serif;
+	letter-spacing: 0.02em;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	background-image: url(../images/back.jpg);
+}
+#wrapper {
+	margin: auto;
+	margin-top: -30px;
+	height: 100%;
+	min-height: 700px;
+}
+#top_menu {
+	margin-left:2%;
+	margin-right:2%;
+	width: 96%;
+	margin-top:40px;
+	height:120px;
+	background-color: rgba(204, 228, 247, 0.5);
+	text-align:center;
+}
+#city {
+	height:120px;
+	float:left;
+	width:49%;
+	text-align:center;
+	background-color: rgba(204, 228, 247, 0.5);
+}
+#country {
+	height:120px;
+	float:right;
+	width:49%;
+	text-align:center;
+	background-color: rgba(204, 228, 247, 0.5);
+}
+h3 {
+	margin-top:60px;
+}
+#left_block {
+	min-height: 700px;
+	background-color: rgba(204, 228, 247, 0.5);
+	margin-top:50px;
+	text-align:center;
+	float:left;
+	width:43%;
+	height:100%;
+	margin-right:5%;
+	margin-left:2%;
+}
+#right_block {
+	min-height: 700px;
+	background-color: rgba(204, 228, 247, 0.5);
+	margin-top:50px;
+	text-align:center;
+	float:left;
+	width:43%;
+	height:100%;
+	margin-left:5%;
+	margin-right:2%;
+}
+#find_geo {
+	padding: 10px;
+	float: right;
+	color: white;
+	margin-top: 60px;
+	margin-right: 10px;
+	background-color: rgb(66, 165, 245);
+	border-radius: 15px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	-ms-border-radius: 15px;
+	-o-border-radius: 15px;
+}
+#map-link {
+	color: white;
+}
+img {
+	width: 60px;
+	height: 60px;
+	margin-top: 60px;
+	margin-left: 15px;
+}
+h2 {
+	margin-bottom: -40px;
+	padding-top: 40px;
+	text-align: center;
+	color: white;
+	font-family: "Serif Italic";
+}
+#form {
+	margin: auto;
+	margin-top: 100px;
+	display: inline-block;
+	vertical-align: middle;
+	width: 100%;
+}
+
+button {
+	text-align: center;
+	color: #8011f7;
+	margin-left: 30%;
+	margin-right: 30%;
+	height: 45px;
+	width: 40%;
+	background: #cce4f7;
+	font-family: "Serif Italic";
+}
+
+a {
+	text-align: center;
+	color: #8011f7;
+	font-family: "Serif Italic";
+	text-decoration: none;
+}
+#button_1 {
+	margin-top: 0px;
+}
+#button_2 {
+	margin-top: 20px;
+}
+#button_3 {
+	margin-top: 20px;
+}
+button {
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	padding: 10px 30px;
+	margin: 10px 20px;
+	position: relative;
+	overflow: hidden;
+	border: 2px solid rgb(66, 165, 245);
+	border-radius: 8px;
+	font-family: "Montserrat", sans-serif;
+	color: rgb(66, 165, 245);
+	transition: 0.2s ease-in-out;
+}
+button:before {
+	content: "";
+	background: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0.1),
+		rgba(255, 255, 255, 0.5)
+	);
+	height: 50px;
+	width: 50px;
+	position: absolute;
+	top: -8px;
+	left: -75px;
+	transform: skewX(-45deg);
+}
+button:hover {
+	background: rgb(66, 165, 245);
+	color: #fff;
+}
+button:hover:before {
+	left: 150px;
+	transition: 0.5s ease-in-out;
+}
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit;
+	font-size: 62, 5%;
+}
+
+.form__label {
+	font-family: "Roboto", sans-serif;
+	font-size: 12px;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-right: 3px;
+	display: block;
+	transition: all 0.3s;
+	transform: translateY(0rem);
+}
+
+.form__input {
+	font-family: "Roboto", sans-serif;
+	color: #333;
+	font-size: 12px;
+	margin: 0 auto;
+	padding: 6px 6px;
+	margin-right: 12px;
+	border-radius: 3px;
+	background-color: rgb(255, 255, 255);
+	border: none;
+	width: 90%;
+	display: block;
+	border-bottom: 0.3rem solid transparent;
+	transition: all 0.3s;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+}
+#name {
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background: #bedaffc5 !important;
+	color: #bedaffc5;
+	font-size: 11px;
+	font-family: Tahoma;
+	-webkit-text-fill-color: rgb(41, 43, 141);
+}
+.form__input:placeholder-shown + #form__label {
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transform: translateY(-4rem);
+	transform: translateY(-4rem);
+}
