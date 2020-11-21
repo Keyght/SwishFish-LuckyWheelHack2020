@@ -7,11 +7,26 @@
 		<meta name="description" content="" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<div id="wrapper">
 			<h2>Choose the location and start to play!</h2>
 			<div id="find_geo">
+				<div class="form__group">
+					<input
+						type="text"
+						class="form__input"
+						id="name"
+						placeholder="Full name"
+						required=""
+					/>
+					<label for="name" id="form__label">Full Name</label>
+				</div>
+
 				<p id="status"></p>
 				<a id="map-link" target="_blank"></a>
 			</div>
