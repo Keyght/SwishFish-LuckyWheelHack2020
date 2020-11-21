@@ -16,7 +16,7 @@
 		<div id="wrapper">
 			<h2>Choose the location and start to play!</h2>
 			<div id="find_geo">
-				<div class="form__group">
+				<div class="form__group" style="display: inline-block">
 					<input
 						type="text"
 						class="form__input"
@@ -24,6 +24,20 @@
 						placeholder="name"
 						required=""
 						onchange="changeName(this.value)"
+					/>
+				</div>
+				<div style="display: inline-block; margin-top: -65px">
+					<input
+						type="image"
+						style="
+							max-width: 25px;
+							max-height: 25px;
+							margin-bottom: -10px;
+							margin-left: -3px;
+						"
+						src="images/paste.png"
+						alt="paste name"
+						onclick="pasteApi()"
 					/>
 				</div>
 				<p id="money">money: <b>0</b></p>

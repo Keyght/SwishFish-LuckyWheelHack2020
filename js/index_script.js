@@ -73,11 +73,22 @@ if (typeof Storage !== "undefined") {
 function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
-	host = "https://more02.github.io/Lucky_wheel_hack2020/";
-	window.location.href = host + "/Game.html";
+	// host = "https://more02.github.io/Lucky_wheel_hack2020/";
+	window.location.href = "/Game.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
 	localStorage.setItem("name", name);
 	console.log("changeName -> name", name);
 }
+//#region pasteApi
+function pasteApi() {
+	console.log("i am work");
+	navigator.clipboard
+		.readText()
+		.then(
+			(clipText) => (document.getElementById("name").placeholder = clipText)
+		);
+}
+
+//#endregion
