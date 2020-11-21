@@ -110,15 +110,26 @@
 		</script>
 		<script>
 	if (window.DeviceOrientationEvent) {
-} else {
-   
+	switch(window.orientation) { 
+        case -90:
+        case 90:
+          // alert('landscape');
+          $('#portrait').css({display:'none'});
+          $('#landscape').css({display:'block'});
+
+          break;
+        default:
+          // alert('portrait');
+          $('#portrait').css({display:'block'});
+          $('#landscape').css({display:'none'});
+          break;
+    }
 }
 
-if (window.DeviceMotionEvent) {
-   
-} else {
-   alert("Please return vertical orientation");
-}
+window.addEventListener('orientationchange', doOnOrientationChange);
+
+// First launch
+doOnOrientationChange();
 		</script>
 	</body>
 </html>
