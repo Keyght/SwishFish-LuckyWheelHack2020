@@ -57,7 +57,7 @@ let fall = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
-scor.src = "sounds/fall.mp3";
+fall.src = "sounds/fall.mp3";
 
 // on key down and press
 function moveUp() {
@@ -78,9 +78,10 @@ pipe[0] = {
 	x: cvs.width,
 	y: -bY,
 };
-function show_alert(shown_alerted) {
+function show_alert(shown_alerted, score) {
 	if (shown_alerted==0) {
-		alert ("Oh no! You crashed");
+		fall.play();
+		alert("Game over!\nyour points: " + score);
 	}
 	else {
 		shown_alerted=1;
@@ -119,7 +120,7 @@ function draw() {
 			bY + bird.height >= cvs.height - fg.height
 		) {
 			if (shown_alerted!=1) {
-				setTimeout(show_alert(shown_alerted), 1);
+				setTimeout(show_alert(shown_alerted, score), 1);
 			}
 			shown_alerted = 1;
 			location.reload(); // reload the page
