@@ -10,7 +10,7 @@
 [![Status](https://img.shields.io/badge/status-active-success.svg)]()
 ![JS](https://img.shields.io/badge/JS-ES2020-red)
 ![mobile](https://img.shields.io/badge/mobile-ready-green)
-![api](https://img.shields.io/badge/API-0-brightgreen)
+![api](https://img.shields.io/badge/API-5-brightgreen)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
