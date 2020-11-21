@@ -97,7 +97,7 @@ let constant;
 let bX = 10;
 let bY = 150;
 
-let gravity = 3;
+let gravity = 2;
 
 let score = 0;
 // audio files
@@ -109,17 +109,6 @@ let fall = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 fall.src = "sounds/fall.mp3";
-
-// on key down and press
-function moveUp() {
-	bY -= 25;
-	fly.play();
-	gravity = 3;
-}
-document.addEventListener("keydown", moveUp);
-document.addEventListener("touchstart", function (e) {
-	moveUp(e);
-});
 
 // pipe coordinates
 
@@ -134,9 +123,9 @@ function show_alert(score) {
 	fall.play();
 	alert("Game over!\nyour points: " + score);
 }
+var buff = 0;
 function draw() {
 	ctx.drawImage(bg, 0, 0);
-
 	for (let i = 0; i < pipe.length; i++) {
 		constant = pipeUp.height + gap;
 		ctx.drawImage(pipeUp, pipe[i].x, pipe[i].y);
@@ -179,14 +168,13 @@ function draw() {
 		}
 	}
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
-	// 450 - Max
 	// power/MaxPower<1
-	bY = 450 - (power / MaxPower) * 450;
 	ctx.drawImage(bird, bX, bY);
-	if (bY < 475) {
-		bY += Math.log(gravity);
-		// gravity *= 1.05;
+	if (bY < 475) bY += gravity;
+	if (bY > 0) {
+		if (power / MaxPower > 0) bY -= (power / MaxPower) * 5;
 	}
+
 	ctx.fillStyle = "#fff";
 	ctx.font = "20px Verdana";
 	ctx.fillText("Score : " + score, 10, cvs.height - 20);
