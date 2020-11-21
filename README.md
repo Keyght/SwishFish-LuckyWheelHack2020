@@ -32,7 +32,7 @@
 - [Authors](#authors)
 
 ## 🧐 About <a name = "about"></a>
-
+[project](https://more02.github.io/Lucky_wheel_hack2020)
 Write about 1-2 paragraphs describing the purpose of your project.
 
 future video (trailer, Dmitriy will change it future on our video) :
