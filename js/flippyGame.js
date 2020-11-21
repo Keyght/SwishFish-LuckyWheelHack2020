@@ -48,9 +48,11 @@ document.addEventListener("touchstart", function (e) {
 let pipe = [];
 pipe[0] = { x: cvs.width, y: 0 };
 let score = 0,
+	score2=0,
 	xPos = 10,
 	yPos = 150,
-	grav = 2;
+	grav = 1.5,
+	q=0;
 function draw() {
 	ctx.drawImage(bg, 0, 0);
 	for (let e = 0; e < pipe.length; e++) {
@@ -69,8 +71,24 @@ function draw() {
 				(yPos <= pipe[e].y + pipeUp.height ||
 					yPos + bird.height >= pipe[e].y + pipeUp.height + gap)) ||
 				yPos + bird.height >= cvs.height - fg.height) &&
-				location.reload(),
-			5 == pipe[e].x && (score++, score_audio.play());
+				location.reload();
+			
+			
+			if(xPos + bird.width >= pipe[e].x
+			&& xPos <= pipe[e].x + coin.width
+			&& (yPos <= pipe[e].y + coin.height
+			|| yPos + bird.height >= pipe[e].y + coin.height + gap)) {
+				q=1;
+			}
+			if(pipe[e].x == 5) {
+				score++;
+				score_audio.play();
+					if (q==1) {
+						score2++; 
+						q=0; 
+					}
+			}
+			
 	}
 	ctx.drawImage(fg, 0, cvs.height - fg.height),
 		ctx.drawImage(bird, xPos, yPos),
@@ -78,7 +96,9 @@ function draw() {
 		(ctx.fillStyle = "#FFFFFF"),
 		(ctx.font = "24px Arial"),
 		ctx.fillText("Счет: " + score, 10, cvs.height - 20),
+		ctx.fillText("Монеты: " + score2, 10, cvs.height - 50),
 		requestAnimationFrame(draw);
 	ctx.drawImage(coin, pipe[i].x, pipe[i].y + pipeUp.height + gap / 2);
+	
 }
 pipeBottom.onload = draw;
