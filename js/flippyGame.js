@@ -1,8 +1,9 @@
 function getRandomInt(e) {
 	return Math.floor(Math.random() * Math.floor(e));
 }
-
-
+function getRandomArbitrary(min, max) {
+  return Math.random() * (max - min) + min;
+}
 
 //changes for git
 let map = getRandomInt(3);
@@ -36,8 +37,9 @@ let bird = new Image(),
 	(bg.style.height = "100%");
 
 // some variables
+let cnst;
 
-let gap = 95;
+let gap = 100;
 let constant;
 
 let bX = 10;
@@ -74,7 +76,7 @@ let pipe = [];
 
 pipe[0] = {
 	x: cvs.width,
-	y: 0,
+	y: -bY,
 };
 function show_alert(shown_alerted) {
 	if (shown_alerted==0) {
@@ -94,10 +96,16 @@ function draw() {
 
 		pipe[i].x--;
 
-		if (pipe[i].x == 70) {
+		cnst = getRandomArbitrary(-150,150);
+		if (pipe[i].x == 70 && pipe[i].y + cnst < 0 && pipe[i].y + cnst >-344) {
 			pipe.push({
 				x: cvs.width,
-				y: Math.floor(Math.random() * pipeUp.height) - pipeUp.height,
+				y: pipe[i].y + cnst
+			});
+		} else if (pipe[i].x == 70 && (pipe[i].y + cnst >= 0 || pipe[i].y + cnst <= -344)) {
+			pipe.push({
+				x: cvs.width,
+				y: pipe[i].y - cnst
 			});
 		}
 
