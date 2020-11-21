@@ -153,8 +153,8 @@ function draw() {
 			if (
 				(bX + bird.width >= pipe[i].x &&
 					bX <= pipe[i].x + pipeUp.width &&
-					(bY <= pipe[i].y + pipeUp.height ||
-						bY + bird.height >= pipe[i].y + constant)) ||
+					(bY+17 <= pipe[i].y + pipeUp.height ||
+						bY + bird.height-5 >= pipe[i].y + constant)) ||
 				bY + bird.height >= cvs.height - fg.height
 			) {
 				setTimeout(show_alert(score), 1);
