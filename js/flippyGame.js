@@ -133,7 +133,7 @@ function draw() {
 		gravity *= 1.05;
 		ctx.fillStyle = "#fff";
 		ctx.font = "20px Verdana";
-		ctx.fillText("points : " + score, 10, cvs.height - 20);
+		ctx.fillText("Score : " + score, 10, cvs.height - 20);
 		requestAnimationFrame(draw);
 	}
 }
