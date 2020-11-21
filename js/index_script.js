@@ -48,6 +48,12 @@ if (typeof Storage !== "undefined") {
 	if (localStorage.getItem("alreadyLoaded") == "true") {
 		// get
 		console.log("I Get Data from Storage.");
+		document.getElementById("form__label").innerHTML = localStorage.getItem(
+			"name"
+		);
+
+		document.getElementById("name").placeholder = localStorage.getItem("name");
+		console.log('localStorage.getItem("name")', localStorage.getItem("name"));
 	} else {
 		// set
 		localStorage.setItem("point", "0");
@@ -57,6 +63,7 @@ if (typeof Storage !== "undefined") {
 		localStorage.setItem("map", "0");
 		console.log("done data");
 	}
+
 	// examples
 } else {
 	// cant load Storage Api
@@ -69,4 +76,8 @@ function WhatMap(map) {
 	host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	window.location.href = host + "/Game.html";
 	localStorage.setItem("map", toString(map));
+}
+function changeName(name) {
+	localStorage.setItem("name", name);
+	console.log("changeName -> name", name);
 }
