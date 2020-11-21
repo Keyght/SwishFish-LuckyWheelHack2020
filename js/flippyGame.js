@@ -15,9 +15,8 @@ let bird = new Image(),
 	bg = new Image(),
 	fg = new Image(),
 	pipeUp = new Image(),
-	coin = new Image(),
 	pipeBottom = new Image();
-
+let coin = new Image();
 var protocol = location.protocol,
 	slashes = protocol.concat("//"),
 	//host = slashes.concat(window.location.hostname);
@@ -30,8 +29,8 @@ host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	(bird.style.width = "38px"),
 	(bird.style.length = "26px"),
 	(bg.style.width = "100%"),
-	(bg.style.height = "100%"),
-	(coin.src = host+"images/coin.png");
+	(bg.style.height = "100%");
+coin.src = host+"images/coin.png";
 let fly = new Audio(),
 	score_audio = new Audio();
 (fly.src = host + "sounds/fly.mp3"), (score_audio.src = "sounds/score.mp3");
@@ -54,9 +53,11 @@ let score = 0,
 	grav = 2;
 function draw() {
 	ctx.drawImage(bg, 0, 0);
-	for (let e = 0; e < pipe.length; e++)
+	for (let e = 0; e < pipe.length; e++) {
 		ctx.drawImage(pipeUp, pipe[e].x, pipe[e].y),
 			ctx.drawImage(pipeBottom, pipe[e].x, pipe[e].y + pipeUp.height + gap),
+				ctx.drawImage(coin, pipe[e].x, pipe[e].y + pipeUp.height + gap/2);
+				
 			pipe[e].x--,
 			125 == pipe[e].x &&
 				pipe.push({
@@ -70,6 +71,7 @@ function draw() {
 				yPos + bird.height >= cvs.height - fg.height) &&
 				location.reload(),
 			5 == pipe[e].x && (score++, score_audio.play());
+	}
 	ctx.drawImage(fg, 0, cvs.height - fg.height),
 		ctx.drawImage(bird, xPos, yPos),
 		(yPos += grav),
