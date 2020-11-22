@@ -43,9 +43,17 @@ img {
 }
 h2 {
 	margin-bottom: -40px;
+	padding-top: 50px;
+	text-align: center;
+	color: white;
+	font-family: "Serif Italic";
+}
+h1 {
+	margin-bottom: -40px;
 	padding-top: 40px;
 	text-align: center;
 	color: white;
+	font-size:48px;
 	font-family: "Serif Italic";
 }
 #form {
