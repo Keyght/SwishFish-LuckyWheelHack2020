@@ -103,5 +103,10 @@ we will add shop in future
 - ![](https://i.paste.pics/7991ef8bcdeb1669ef00ba7302f51655.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
 - ![](https://i.paste.pics/e597ebe40452c10feb27e6606d2ecc66.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
 gameplay
- - ![](https://i.paste.pics/550979f71cc7413d10a17b5fbf8c38dc.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
- - ![](https://i.paste.pics/ac4998f85d47b870b6c212be7043c6c1.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
+<p align="center"> 
+   <img src="https://i.paste.pics/550979f71cc7413d10a17b5fbf8c38dc.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4" alt="Project logo"></a>
+</p>
+<p align="center"> 
+   <img src="https://i.paste.pics/ac4998f85d47b870b6c212be7043c6c1.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4" alt="Project logo"></a>
+</p>
+
