@@ -210,12 +210,16 @@ function draw() {
 		if (bY < 475) bY += gravity;
 		const diff = power / MaxPower;
 		if (bY > 0 && diff > 0) bY = 500 - diff * 500;
+		console.log("draw -> bY", bY);
 
-		if (diff < 0.1) {
-			bubl.style.visibility = "hidden";
-		} else {
+		if (diff < 0.1) bubl.style.visibility = "hidden";
+		else {
+			const change = diff * 10;
 			bubl.style.visibility = "visible";
-
+			bublList.forEach((bubble) => {
+				bubble.style.minHeight = String(change) + "px";
+				bubble.style.minWidth = String(change) + "px";
+			});
 		}
 
 		ctx.fillStyle = "#fff";

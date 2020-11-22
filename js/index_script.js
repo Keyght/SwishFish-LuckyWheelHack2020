@@ -100,6 +100,7 @@ function pasteApi() {
 //#region Service Workers Api
 
 if (document.location.pathname == "/index.html") {
+	return 0;
 	console.log(" i use... Service Workers Api");
 	const CACHE = "network-or-cache-v1";
 	const timeout = 400;
