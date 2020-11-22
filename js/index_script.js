@@ -106,7 +106,7 @@ const timeout = 400;
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE).then((cache) => cache.addAll([
-                '/images', '/js', '/css';
+                './images/', './js/', './css/','./index.html';
             ])
         ));
 });
