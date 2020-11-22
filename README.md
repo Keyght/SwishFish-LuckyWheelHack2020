@@ -41,9 +41,9 @@ Here you can enjoy classic jumping mode, oportunity of manage fish with your bre
 - [X] 4. Highscore table
 - [X] 5. 3 game modes: touches, breath or voice, karaoke
 
- video:
-
-[![video](https://img.youtube.com/vi/ATI1GiiHVkY/1.jpg)](https://youtu.be/ATI1GiiHVkY)
+ - video:
+- [![video](https://img.youtube.com/vi/ATI1GiiHVkY/1.jpg)](https://youtu.be/ATI1GiiHVkY)
+- link on game: [game](https://more02.github.io/Lucky_wheel_hack2020/)
 
 ## ⚙Used api<a name = "api"></a>
 
