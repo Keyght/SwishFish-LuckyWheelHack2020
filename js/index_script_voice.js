@@ -78,6 +78,7 @@ function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
 	// host = "https://more02.github.io/Lucky_wheel_hack2020/";
+	
 	window.location.href = "GameVoice.html";
 	localStorage.setItem("map", toString(map));
 }

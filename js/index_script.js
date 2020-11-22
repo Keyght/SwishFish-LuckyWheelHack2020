@@ -1,3 +1,7 @@
+// lock screen
+screen.orientation.lock("portrait-primary");
+
+//#region ResizeObserverApi
 const ro = new ResizeObserver((entries) => {
 	for (let entry of entries) {
 		const width = entry.contentBoxSize
@@ -9,11 +13,13 @@ const ro = new ResizeObserver((entries) => {
 		}
 	}
 });
+//#endregion
 let music = new Audio();
 music.src = "sounds/music0.mp3";
 music.value = 0.2;
 console.log(music.value);
 music.play();
+
 //Geolocation API
 const status = document.querySelector("#status");
 const mapLink = document.querySelector("#map-link");
@@ -52,12 +58,7 @@ if (typeof Storage !== "undefined") {
 	if (localStorage.getItem("alreadyLoaded") == "true") {
 		// get
 		console.log("I Get Data from Storage.");
-		document.getElementById("form__label").innerHTML = localStorage.getItem(
-			"name"
-		);
-
 		document.getElementById("name").placeholder = localStorage.getItem("name");
-		console.log('localStorage.getItem("name")', localStorage.getItem("name"));
 	} else {
 		// set
 		localStorage.setItem("point", "0");
@@ -78,7 +79,9 @@ function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
 	// host = "https://more02.github.io/Lucky_wheel_hack2020/";
-	window.location.href = "/Game.html";
+	if (map == 0) window.location.href = "/Game.html";
+	else if (map == 1) window.location.href = "/GameVoice.html";
+	else if (map == 2) window.location.href = "/GameVoice.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
@@ -94,46 +97,49 @@ function pasteApi() {
 		);
 }
 //#endregion
+//#region Service Workers Api
 
+if (document.location.pathname == "/index.html") {
+	console.log(" i use... Service Workers Api");
+	const CACHE = "network-or-cache-v1";
+	const timeout = 400;
+	self.addEventListener("install", (event) => {
+		event.waitUntil(
+			caches
+				.open(CACHE)
+				.then((cache) =>
+					cache.addAll(["./images/bg.phg", "./js/", "./css/", "./index.html"])
+				)
+		);
+	});
 
+	self.addEventListener("fetch", (event) => {
+		event.respondWith(
+			fromNetwork(event.request, timeout).catch((err) => {
+				console.log(`Error: ${err.message()}`);
+				return fromCache(event.request);
+			})
+		);
+	});
 
+	function fromNetwork(request, timeout) {
+		return new Promise((fulfill, reject) => {
+			var timeoutId = setTimeout(reject, timeout);
+			fetch(request).then((response) => {
+				clearTimeout(timeoutId);
+				fulfill(response);
+			}, reject);
+		});
+	}
 
-
-//Service Workers Api
-
-const CACHE = 'network-or-cache-v1';
-const timeout = 400;
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-        caches.open(CACHE).then((cache) => cache.addAll([
-                './images/bg.phg', './js/', './css/','./index.html';
-            ])
-        ));
-});
-
-self.addEventListener('fetch', (event) => {
-    event.respondWith(fromNetwork(event.request, timeout)
-      .catch((err) => {
-          console.log(`Error: ${err.message()}`);
-          return fromCache(event.request);
-      }));
-});
-
-function fromNetwork(request, timeout) {
-    return new Promise((fulfill, reject) => {
-        var timeoutId = setTimeout(reject, timeout);
-        fetch(request).then((response) => {
-            clearTimeout(timeoutId);
-            fulfill(response);
-        }, reject);
-    });
+	function fromCache(request) {
+		return caches
+			.open(CACHE)
+			.then((cache) =>
+				cache
+					.match(request)
+					.then((matching) => matching || Promise.reject("no-match"))
+			);
+	}
 }
-
-function fromCache(request) {
-    return caches.open(CACHE).then((cache) =>
-        cache.match(request).then((matching) =>
-            matching || Promise.reject('no-match')
-        ));
-}
-
-//End Service Workers Api
+//#endregionEnd Service Workers Api

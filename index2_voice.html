@@ -63,49 +63,9 @@
 		</div>
 		<script src="js/index_script_voice.js"></script>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+		<!-- <script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script> -->
 		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-
-		<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-
-		<script>
-			// Your web app's Firebase configuration
-			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-			var firebaseConfig = {
-				apiKey: "AIzaSyAS_q-BVjGc2VuG9xxz69g0pyzuNsH6eSQ",
-				authDomain: "swish-fish.firebaseapp.com",
-				databaseURL: "https://swish-fish.firebaseio.com",
-				projectId: "swish-fish",
-				storageBucket: "swish-fish.appspot.com",
-				messagingSenderId: "221101981086",
-				appId: "1:221101981086:web:4fc515232db5717ce6aa8f",
-				measurementId: "G-28PRKFXRMW",
-			};
-			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-			firebase.analytics();
-		</script>
-		<script>
-			let database = firebase.database();
-
-			let name, highscore, city, money, id;
-
-			function send() {
-				add();
-				firebase
-					.database()
-					.ref("person/" + name)
-					.set({
-						NameOfPerson: name,
-						Highscore: highscore,
-						City: city,
-						Money: money,
-						ID: id,
-					});
-			}
-		</script>
+		<script src="js/firebase/config.js"></script>
 	</body>
 </html>

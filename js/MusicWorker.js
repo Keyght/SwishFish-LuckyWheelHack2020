@@ -1,5 +1,4 @@
-onmessage = function(event) {
+onmessage = function (event) {
 	//event.data.basesound.play();
-    postMessage(2+2);
-
+	postMessage(2 + 2);
 };

@@ -46,15 +46,13 @@ h2 {
 	padding-top: 50px;
 	text-align: center;
 	color: white;
-	font-family: "Serif Italic";
 }
 h1 {
 	margin-bottom: -40px;
 	padding-top: 40px;
 	text-align: center;
 	color: white;
-	font-size:48px;
-	font-family: "Serif Italic";
+	font-size: 48px;
 }
 #form {
 	margin: auto;
@@ -66,19 +64,27 @@ h1 {
 
 button {
 	text-align: center;
-	color: #8011f7;
 	margin-left: 30%;
 	margin-right: 30%;
 	height: 45px;
 	width: 40%;
 	background: #cce4f7;
-	font-family: "Serif Italic";
+	text-decoration: none;
+	outline: none;
+	display: inline-block;
+	padding: 10px 30px;
+	margin: 10px 20px;
+	position: relative;
+	overflow: hidden;
+	border: 2px solid rgb(66, 165, 245);
+	border-radius: 8px;
+	color: rgb(66, 165, 245);
+	transition: 0.2s ease-in-out;
 }
 
 a {
 	text-align: center;
 	color: #8011f7;
-	font-family: "Serif Italic";
 	text-decoration: none;
 }
 #button_1 {
@@ -90,20 +96,7 @@ a {
 #button_3 {
 	margin-top: 20px;
 }
-button {
-	text-decoration: none;
-	outline: none;
-	display: inline-block;
-	padding: 10px 30px;
-	margin: 10px 20px;
-	position: relative;
-	overflow: hidden;
-	border: 2px solid rgb(66, 165, 245);
-	border-radius: 8px;
-	font-family: "Montserrat", sans-serif;
-	color: rgb(66, 165, 245);
-	transition: 0.2s ease-in-out;
-}
+
 button:before {
 	content: "";
 	background: linear-gradient(
@@ -144,6 +137,10 @@ button:hover:before {
 	display: block;
 	transition: all 0.3s;
 	transform: translateY(0rem);
+	-webkit-transform: translateY(0rem);
+	-moz-transform: translateY(0rem);
+	-ms-transform: translateY(0rem);
+	-o-transform: translateY(0rem);
 }
 
 .form__input {
