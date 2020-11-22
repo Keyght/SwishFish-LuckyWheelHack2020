@@ -93,7 +93,7 @@ function WhatMap(map) {
 	let host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	if (map == 0) window.location.href = host + "Game.html";
 	else if (map == 1) window.location.href = host + "GameVoice.html";
-	else if (map == 2) window.location.href = host + "GameVoice.html";
+	else if (map == 2) window.location.href = host + "GameKaraoke.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
