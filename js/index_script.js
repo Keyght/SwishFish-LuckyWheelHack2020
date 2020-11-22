@@ -86,10 +86,10 @@ if (typeof Storage !== "undefined") {
 function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
-	// host = "https://more02.github.io/Lucky_wheel_hack2020/";
+	//let host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	if (map == 0) window.location.href = "/Game.html";
 	else if (map == 1) window.location.href = "/GameVoice.html";
-	else if (map == 2) window.location.href = "/GameVoice.html";
+	else if (map == 2) window.location.href = "/GameKaraoke.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
