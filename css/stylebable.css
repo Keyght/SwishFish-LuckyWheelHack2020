@@ -552,7 +552,7 @@
 	-moz-animation: animStar 90s infinite linear;
 	animation: animStar 90s infinite linear;
 }
-.bubl3:after {
+#bubl3:after {
 	content: " ";
 	position: absolute;
 	top: 2500px;

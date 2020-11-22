@@ -147,11 +147,6 @@ music.src = "sounds/music1.mp3";
 music.play();
 // pipe coordinates
 bubl = document.getElementById("bubl");
-bublList = [
-	document.getElementById("b1"),
-	document.getElementById("b2"),
-	document.getElementById("b3"),
-];
 
 let pipe = [];
 
@@ -214,16 +209,13 @@ function draw() {
 		ctx.drawImage(bird, bX, bY);
 		if (bY < 475) bY += gravity;
 		const diff = power / MaxPower;
-		if (bY > 0 && diff > 0) bY -= diff * 7;
+		if (bY > 0 && diff > 0) bY = 500 - diff * 500;
 
-		if (diff < 0.1) bubl.style.visibility = "hidden";
-		else {
-			const change = diff * 10;
+		if (diff < 0.1) {
+			bubl.style.visibility = "hidden";
+		} else {
 			bubl.style.visibility = "visible";
-			bublList.forEach((bubble) => {
-				bubble.style.minHeight = String(change) + "px";
-				bubble.style.minWidth = String(change) + "px";
-			});
+
 		}
 
 		ctx.fillStyle = "#fff";
