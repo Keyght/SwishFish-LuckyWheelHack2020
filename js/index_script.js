@@ -20,6 +20,12 @@ music.value = 0.2;
 console.log(music.value);
 music.play();
 
+function getId(mask) { 
+	return mask.replace(/[x]/gi, () => { return Math.random().toString(26)[5]; }) 
+} 
+let ident = document.getElementById('ident');
+ident.value = getId('xxxx-xxxx-xxxx-xxxx-xxxx-xxxx');
+
 //Geolocation API
 const status = document.querySelector("#status");
 const mapLink = document.querySelector("#map-link");
@@ -59,11 +65,13 @@ if (typeof Storage !== "undefined") {
 		// get
 		console.log("I Get Data from Storage.");
 		document.getElementById("name").placeholder = localStorage.getItem("name");
+		document.getElementById("ident").placeholder = localStorage.getItem("ident");
 	} else {
 		// set
 		localStorage.setItem("point", "0");
 		localStorage.setItem("money", "0");
 		localStorage.setItem("name", "Player");
+		localStorage.setItem("ident", ident.value);
 		localStorage.setItem("alreadyLoaded", "true");
 		localStorage.setItem("map", "0");
 		console.log("done data");
