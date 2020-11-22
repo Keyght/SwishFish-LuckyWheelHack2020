@@ -87,9 +87,9 @@ function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
 	//let host = "https://more02.github.io/Lucky_wheel_hack2020/";
-	if (map == 0) window.location.href = "/Game.html";
-	else if (map == 1) window.location.href = "/GameVoice.html";
-	else if (map == 2) window.location.href = "/GameKaraoke.html";
+	if (map == 0) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/Game.html";
+	else if (map == 1) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/GameVoice.html";
+	else if (map == 2) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/GameKaraoke.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
