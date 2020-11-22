@@ -35,29 +35,29 @@
 
 This game is about the brave little fish that challenge endless obstacles .  
 Here you can enjoy classic jumping mode, oportunity of manage fish with your breath or voice, seeing air bubbles, voice-karaoke mode and get satisfied by listen relaxing music. Also you can comepete with other players in your region.
-- [ ] 1. 3 backgrounds
-- [ ] 2. 3 skins for your fish
-- [ ] 3. 2 kinds of obstacles
-- [ ] 4. Highscore table
-- [ ] 5. 3 game modes: touches, breath or voice, karaoke
+- [X] 1. 3 backgrounds
+- [X] 2. 3 skins for your fish
+- [X] 3. 2 kinds of obstacles
+- [X] 4. Highscore table
+- [X] 5. 3 game modes: touches, breath or voice, karaoke
 
-future video (trailer, Dmitriy will change it future on our video) :
+ video:
 
-[![video](https://img.youtube.com/vi/yhzYFRYipmI/1.jpg)](https://youtu.be/yhzYFRYipmI)
+[![video](https://img.youtube.com/vi/ATI1GiiHVkY/1.jpg)](https://youtu.be/ATI1GiiHVkY)
 
 ## ⚙Used api<a name = "api"></a>
 
 List of used Api
 
-- [ ] 1. Canvas API for creation of play space
-- [ ] 2. Resize Observer API API for adaptive design
-- [ ] 3. Geolocation API to find coordinates and to share records
-- [ ] 4. Page Visibility API to save resources and stop geymplay while page is not active
-- [ ] 5. Web Audio API to manage fish with voice and for caraoke
-- [ ] 6. Web Storage API to save the name of the player
-- [ ] 7. Web Animations API to make bubbles under water
-- [ ] 8. Clipboard API insert player name from clipboard
-- [ ] 9. Service Workers API to have a possibility browse homepage offline
+- [X] 1. Canvas API for creation of play space
+- [X] 2. Resize Observer API API for adaptive design
+- [X] 3. Geolocation API to find coordinates and to share records
+- [X] 4. Page Visibility API to save resources and stop geymplay while page is not active
+- [X] 5. Web Audio API to manage fish with voice and for caraoke
+- [X] 6. Web Storage API to save the name of the player
+- [X] 7. Web Animations API to make bubbles under water
+- [X] 8. Clipboard API insert player name from clipboard
+- [X] 9. Service Workers API to have a possibility browse homepage offline
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
