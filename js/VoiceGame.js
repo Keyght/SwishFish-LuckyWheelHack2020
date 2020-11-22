@@ -209,7 +209,7 @@ function draw() {
 		if (bY < 475) bY += gravity;
 		const diff = power / MaxPower;
 		if (bY > 0) {
-			if (diff > 0) bY -= diff * 5;
+			if (diff > 0) bY -= diff * 7;
 		}
 
 		ctx.fillStyle = "#fff";
