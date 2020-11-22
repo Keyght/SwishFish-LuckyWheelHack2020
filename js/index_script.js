@@ -106,7 +106,7 @@ const timeout = 400;
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE).then((cache) => cache.addAll([
-                './images/', './js/', './css/','./index.html','./index_script.js','./Game.html','./GameVoice.html','./index2_touch.html','./index2_voice.html',,'./Records.html','./game.js','./index_script_touch.js','./index_script_voice.js','./sw.js','./VoiceGame.js';
+                './images/bg.phg', './js/', './css/','./index.html';
             ])
         ));
 });
@@ -137,4 +137,3 @@ function fromCache(request) {
 }
 
 //End Service Workers Api
-
