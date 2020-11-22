@@ -111,7 +111,7 @@
 		<script>
 	if ( 'orientation' in screen ) {
 			let locOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation || screen.orientation.lock;
-			locOrientation('landscape');
+			locOrientation('portrait');
 		} else {
 			console.log( 'API not supported ' );
 		}
