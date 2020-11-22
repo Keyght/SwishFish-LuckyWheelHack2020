@@ -58,7 +58,7 @@ List of used Api
 
 If you want to launch the project in the easiest way, then to launch the project in the best possible way, you need a smartphone, the latest chrome browser and Internet access.
 If you want to run from a computer, you need a chrome browser with the mobile device mode enabled (Additional Tools / Developer Tools / Toogle device toolbar).
-The entire application is available here   https://more02.github.io/Lucky_wheel_hack2020/  
+The entire application is available here https://more02.github.io/Lucky_wheel_hack2020/  
 Just open the link and enjoy the gameplay
 
 ### Installing
@@ -69,7 +69,7 @@ If you want to run the project locally, you need to download the archive of file
 git clone https://github.com/More02/Lucky_wheel_hack2020
 ```
 
-Then run the indx.html page through the Chrome browser or open the code of it through the Notepad ++ editor
+Then run the index.html page through the Chrome browser or open the code of it through the Notepad ++ editor
 
 ## 🎈 Usage <a name="usage"></a>
 
