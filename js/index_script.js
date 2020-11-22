@@ -20,12 +20,15 @@ music.value = 0.2;
 console.log(music.value);
 music.play();
 
-function getId(mask) { 
-	return mask.replace(/[x]/gi, () => { return Math.random().toString(26)[5]; }) 
-} 
-let ident = document.getElementById('ident');
-ident.textContent = getId('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-document.getElementById("button_1").href="index.html?result="+ident.placeholder;
+function getId(mask) {
+	return mask.replace(/[x]/gi, () => {
+		return Math.random().toString(26)[5];
+	});
+}
+let ident = document.getElementById("ident");
+ident.textContent = getId("xxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+document.getElementById("button_1").href =
+	"index.html?result=" + ident.placeholder;
 
 //Geolocation API
 const status = document.querySelector("#status");
@@ -88,9 +91,9 @@ function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
 	let host = "https://more02.github.io/Lucky_wheel_hack2020/";
-	if (map == 0) window.location.href = host+"Game.html";
-	else if (map == 1) window.location.href = host+"GameVoice.html";
-	else if (map == 2) window.location.href = host+"GameVoice.html";
+	if (map == 0) window.location.href = host + "Game.html";
+	else if (map == 1) window.location.href = host + "GameVoice.html";
+	else if (map == 2) window.location.href = host + "GameVoice.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
@@ -153,41 +156,53 @@ if (document.location.pathname == "/index.html") {
 }
 //#endregionEnd Service Workers Api
 
-let name, highscore, city, id;
+let name1, highscore1, city1, id1;
 
 function ready() {
-	name = document.getElementById('name');
-	highscore = document.getElementById('best score');
-	city = document.getElementById('name');
-	id = document.getElementById('ident');
+	name1 = document.getElementById("name");
+	highscore1 = document.getElementById("best score");
+	city = document.getElementById("name");
+	id = document.getElementById("ident");
 }
 function insert() {
 	ready();
-	firebase.database().ref('person/'+id).set({
-		NameOfPerson: name,
-		Highscore: highscore,
-		City: city,
-		ID: id
-	});
+	firebase
+		.database()
+		.ref("person/" + id)
+		.set({
+			NameOfPerson: name1,
+			Highscore: hihighscore1ghscore,
+			City: city,
+			ID: id,
+		});
 }
 function select() {
 	ready();
-	firebase.database().ref('person/'+id).on('value',function(snapshot){
-		name = snapshot.val().NameOfPerson;
-		highscore = snapshot.val().Highscore;
-		city = snapshot.val().City;
-		id = snapshot.val().ID;
-	});
+	firebase
+		.database()
+		.ref("person/" + id)
+		.on("value", function (snapshot) {
+			name1 = snapshot.val().NameOfPerson;
+			highscore = snapshot.val().Highscore;
+			city = snapshot.val().City;
+			id = snapshot.val().ID;
+		});
 }
 function update() {
 	ready();
-	firebase.database().ref('person/'+id).update('value',function(snapshot){
-		name = snapshot.val().NameOfPerson;
-		highscore = snapshot.val().Highscore;
-		city = snapshot.val().City;
-	});
+	firebase
+		.database()
+		.ref("person/" + id)
+		.update("value", function (snapshot) {
+			name1 = snapshot.val().NameOfPerson;
+			highscore1 = snapshot.val().Highscore;
+			city = snapshot.val().City;
+		});
 }
 function del() {
 	ready();
-	firebase.database().ref('person/'+id).remove();
+	firebase
+		.database()
+		.ref("person/" + id)
+		.remove();
 }
