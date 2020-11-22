@@ -97,7 +97,7 @@ The entire application is available here   https://more02.github.io/Lucky_wheel_
 - [@Keyght](https://github.com/Keyght) - Developer
 - [@mentoster](https://github.com/mentoster) - Developer
 
-See also the list of [contributors](https://github.com/) who participated in this project.
+See also the list of [contributors](https://github.com/More02/Lucky_wheel_hack2020/graphs/contributors) who participated in this project.
 ## 📷 photos 
 we will add shop in future
 - ![](https://i.paste.pics/7991ef8bcdeb1669ef00ba7302f51655.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
