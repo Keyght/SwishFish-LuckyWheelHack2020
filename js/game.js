@@ -39,6 +39,7 @@ if (typeof document.addEventListener === "undefined" || hidden === undefined) {
 
 //changes for git
 let map = getRandomInt(3);
+let pipin = getRandomInt(2);
 
 let cvs = document.getElementById("canvas"),
 	ctx = cvs.getContext("2d"),
@@ -61,8 +62,8 @@ let bird = new Image(),
 
 (bird.src = "images/fish/fish" + map + ".png"),
 	(bg.src = "images/water/water" + map + ".png"),
-	(pipeUp.src = "images/pipeUp.png"),
-	(pipeBottom.src = "images/pipeBottom.png"),
+	(pipeUp.src = "images/pipeUp" + pipin + ".png"),
+	(pipeBottom.src = "images/pipeBottom" + pipin + ".png"),
 	(bird.style.width = "38px"),
 	(bird.style.height = "26px"),
 	(bg.style.width = "100%"),
