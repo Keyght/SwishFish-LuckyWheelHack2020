@@ -34,7 +34,12 @@
 ## 🧐 About <a name = "about"></a>
 
 This game is about the brave little fish that challenge endless obstacles .  
-Here you can enjoy classic jumping mode, oportunity of manage fish with your voice and voice-karaoke mode and get satisfied by listen relaxing music. Also you can comepete with other players in your region.
+Here you can enjoy classic jumping mode, oportunity of manage fish with your breath or voice, seeing air bubbles, voice-karaoke mode and get satisfied by listen relaxing music. Also you can comepete with other players in your region.
+- [ ] 1. 3 backgrounds
+- [ ] 2. 3 skins for your fish
+- [ ] 3. 2 kinds of obstacles
+- [ ] 4. Highscore table
+- [ ] 5. 3 game modes: touches, breath or voice, karaoke
 
 future video (trailer, Dmitriy will change it future on our video) :
 
