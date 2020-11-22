@@ -40,7 +40,7 @@ function select() {
 		highscore = snapshot.val().Highscore;
 		city = snapshot.val().City;
 		id = snapshot.val().ID;
-	};
+	});
 }
 
 function update() {
@@ -49,7 +49,7 @@ function update() {
 		name = snapshot.val().NameOfPerson;
 		highscore = snapshot.val().Highscore;
 		city = snapshot.val().City;
-	};
+	});
 }
 
 function del() {

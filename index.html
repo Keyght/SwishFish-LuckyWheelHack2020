@@ -14,8 +14,8 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<h1 style="font-family: Roboto" id="project_name">Swish fish</h1>
-			<!-- <h2 style="color: lightcoral">Choose the point you are interesting in.</h2> -->
+			<h1 id="project_name">Swish fish</h1>
+			<h2>Choose the point you are interesting in.</h2>
 			<div id="find_geo">
 				<div class="form__group" style="display: inline-block">
 					<input
@@ -38,13 +38,14 @@
 						"
 						src="images/paste.png"
 						alt="paste name"
+						onclick="pasteApi()"
 					/>
 				</div>
 				<p id="money">money: <b>0</b></p>
 				<p id="best score">best score: <b>0 </b></p>
 				<p>Position:</p>
 				<p id="status"></p>
-				<p id="ident" , value="0"></p>
+				<a id="ident" placeholder="ident" hidden></a>
 				<a id="map-link" target="_blank"></a>
 				<br />
 				<button
@@ -55,25 +56,11 @@
 				>
 					<b style="margin-bottom: 10px">Records</b>
 				</button>
-
-				<input
-					id="share"
-					type="image"
-					style="
-						max-width: 25px;
-						max-height: 25px;
-						margin-right: -5px;
-						display: inline-block;
-					"
-					src="images/baseline_share_white_18dp.png"
-					alt="paste name"
-					onclick="shareGame()"
-				/>
 			</div>
 
 			<a href="#" id="shop"><img src="images/shop.png" /></a>
 			<div id="form" align="center">
-				<button value="Location 1" id="button_1" onclick="WhatMap(0)">
+				<button href="index.html?result=placeholder" value="Location 1" id="button_1" onclick="WhatMap(0)">
 					<b>Use tap</b>
 				</button>
 				<br />
@@ -86,6 +73,13 @@
 				</button>
 			</div>
 		</div>
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<!-- The core Firebase JS SDK is always required and must be listed first -->
+		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
+		<script src="js/firebase/config.js"></script>
 		<script src="js/index_script.js"></script>
 	</body>
 </html>

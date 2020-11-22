@@ -24,7 +24,8 @@ function getId(mask) {
 	return mask.replace(/[x]/gi, () => { return Math.random().toString(26)[5]; }) 
 } 
 let ident = document.getElementById('ident');
-ident.value = getId('xxxx-xxxx-xxxx-xxxx-xxxx-xxxx');
+ident.textContent = getId('xxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+document.getElementById("button_1").href="index.html?result="+ident.placeholder;
 
 //Geolocation API
 const status = document.querySelector("#status");
@@ -65,13 +66,13 @@ if (typeof Storage !== "undefined") {
 		// get
 		console.log("I Get Data from Storage.");
 		document.getElementById("name").placeholder = localStorage.getItem("name");
-		document.getElementById("ident").placeholder = localStorage.getItem("ident");
+		ident.placeholder = localStorage.getItem("ident");
 	} else {
 		// set
 		localStorage.setItem("point", "0");
 		localStorage.setItem("money", "0");
 		localStorage.setItem("name", "Player");
-		localStorage.setItem("ident", ident.value);
+		localStorage.setItem("ident", ident.textContent);
 		localStorage.setItem("alreadyLoaded", "true");
 		localStorage.setItem("map", "0");
 		console.log("done data");
@@ -86,10 +87,10 @@ if (typeof Storage !== "undefined") {
 function WhatMap(map) {
 	console.log("map " + map);
 	var url = document.location.host;
-	//let host = "https://more02.github.io/Lucky_wheel_hack2020/";
+	// host = "https://more02.github.io/Lucky_wheel_hack2020/";
 	if (map == 0) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/Game.html";
 	else if (map == 1) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/GameVoice.html";
-	else if (map == 2) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/GameKaraoke.html";
+	else if (map == 2) window.location.href = "https://more02.github.io/Lucky_wheel_hack2020/GameVoice.html";
 	localStorage.setItem("map", toString(map));
 }
 function changeName(name) {
@@ -152,23 +153,41 @@ if (document.location.pathname == "/index.html") {
 }
 //#endregionEnd Service Workers Api
 
-//#region Navigator.share()
-const shareData = {
-	title: "I played at game Swish Fish!",
-	text: "My points is " + localStorage.getItem("name") + ", can u defeat me?",
-	url: document.url,
-};
+let name, highscore, city, id;
 
-const btn = document.querySelector("#share");
-// work only on mobile?
-function shareGame() {
-	console.log("share");
-		try {
-		await navigator.share(shareData);
-		console.log("data shared successfully");
-	} catch (err) {
-		console.log("Error: " + err);
-		alert("u cant share here, "+err);
-	}
+function ready() {
+	name = document.getElementById('name');
+	highscore = document.getElementById('best score');
+	city = document.getElementById('name');
+	id = document.getElementById('ident');
 }
-//#endregion
+function insert() {
+	ready();
+	firebase.database().ref('person/'+id).set({
+		NameOfPerson: name,
+		Highscore: highscore,
+		City: city,
+		ID: id
+	});
+}
+function select() {
+	ready();
+	firebase.database().ref('person/'+id).on('value',function(snapshot){
+		name = snapshot.val().NameOfPerson;
+		highscore = snapshot.val().Highscore;
+		city = snapshot.val().City;
+		id = snapshot.val().ID;
+	});
+}
+function update() {
+	ready();
+	firebase.database().ref('person/'+id).update('value',function(snapshot){
+		name = snapshot.val().NameOfPerson;
+		highscore = snapshot.val().Highscore;
+		city = snapshot.val().City;
+	});
+}
+function del() {
+	ready();
+	firebase.database().ref('person/'+id).remove();
+}
