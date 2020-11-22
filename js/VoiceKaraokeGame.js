@@ -147,7 +147,11 @@ music.src = "sounds/music1.mp3";
 music.play();
 // pipe coordinates
 bubl = document.getElementById("bubl");
-
+bublList = [
+	document.getElementById("b1"),
+	document.getElementById("b2"),
+	document.getElementById("b3"),
+];
 let pipe = [];
 
 pipe[0] = {

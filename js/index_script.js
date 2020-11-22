@@ -100,7 +100,6 @@ function pasteApi() {
 //#region Service Workers Api
 
 if (document.location.pathname == "/index.html") {
-	return 0;
 	console.log(" i use... Service Workers Api");
 	const CACHE = "network-or-cache-v1";
 	const timeout = 400;
@@ -109,7 +108,7 @@ if (document.location.pathname == "/index.html") {
 			caches
 				.open(CACHE)
 				.then((cache) =>
-					cache.addAll(["./images/bg.phg", "./js/", "./css/", "./index.html"])
+					cache.addAll(["./images/bg.png", "./js/", "./css/", "./index.html"])
 				)
 		);
 	});
