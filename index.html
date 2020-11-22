@@ -14,50 +14,18 @@
 	</head>
 	<body>
 		<div id="wrapper">
-			<h2>Choose the location and start to play!</h2>
-			<div id="find_geo">
-				<div class="form__group" style="display: inline-block">
-					<input
-						type="text"
-						class="form__input"
-						id="name"
-						placeholder="name"
-						required=""
-						onchange="changeName(this.value)"
-					/>
-				</div>
-				<div style="display: inline-block; margin-top: -65px">
-					<input
-						type="image"
-						style="
-							max-width: 25px;
-							max-height: 25px;
-							margin-bottom: -10px;
-							margin-left: -3px;
-						"
-						src="images/paste.png"
-						alt="paste name"
-						onclick="pasteApi()"
-					/>
-				</div>
-				<p id="money">money: <b>0</b></p>
-				<p id="best score">best score: <b>0 </b></p>
-				<p>Position:</p>
-				<p id="status"></p>
-				<a id="map-link" target="_blank"></a>
-			</div>
-			<a href="#" id="shop"><img src="images/shop.png" /></a>
+			<h2>Choose the point you are interesting in</h2>
 			<div id="form" align="center">
-				<button value="Location 1" id="button_1" onclick="WhatMap(0)">
-					<b>Random Location 1</b>
+				<button value="Location 1" id="button_1" onclick="window.location.href = 'index2_touch.html';">
+					<b>Touches manage</b>
 				</button>
 				<br />
-				<button value="Location 2" id="button_2" onclick="WhatMap(1)">
-					<b>Random Location 2</b>
+				<button value="Location 2" id="button_2" onclick="window.location.href = 'index2_voice.html';">
+					<b>Voice manage</b>
 				</button>
 				<br />
-				<button value="Location 3" id="button_3" onclick="WhatMap(2)">
-					<b>Random Location 3</b>
+				<button value="Location 3" id="button_3" onclick="window.location.href = 'Records.html';">
+					<b>High Score</b>
 				</button>
 			</div>
 		</div>
