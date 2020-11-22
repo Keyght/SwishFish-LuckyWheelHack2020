@@ -81,6 +81,10 @@ a {
 	font-family: "Serif Italic";
 	text-decoration: none;
 }
+#lock-button {
+	width: 30px;
+	height: 30px;
+}
 #button_1 {
 	margin-top: 0px;
 }

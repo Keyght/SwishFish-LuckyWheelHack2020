@@ -14,6 +14,7 @@
 	</head>
 	<body>
 		<div id="wrapper">
+		<button value="Lock" id="lock-button"> <b>Lock</b></button>
 			<h1 id="project_name">Swish fish</h1>
 			<h2>Choose the point you are interesting in.</h2>
 			<div id="form" align="center">
@@ -76,9 +77,35 @@
 					});
 			}
 		</script>
-		</script>
 		<script>
-	screen.orientation.lock("portrait-primary");
+var prefix = 'orientation' in screen ? '' :
+                      'mozOrientation' in screen ? 'moz' :
+                      'msOrientation' in screen ? 'ms' :
+                      null;
+            function launchFullscreen(element) {
+               if(element.requestFullscreen) {
+                  element.requestFullscreen();
+               } else if(element.mozRequestFullScreen) {
+                  element.mozRequestFullScreen();
+               } else if(element.webkitRequestFullscreen) {
+                  element.webkitRequestFullscreen();
+               } else if(element.msRequestFullscreen) {
+                  element.msRequestFullscreen();
+               }
+            function orientationHandler() {
+               var orientationProperty = prefix + (prefix === '' ? 'o' : 'O') + 'rientation';
+               document.getElementById('orientation').textContent = screen[orientationProperty];
+            }
+            screen.addEventListener(prefix + 'orientationchange', orientationHandler);
+            document.getElementById('lock-button').addEventListener('click', function(event) {
+               event.preventDefault();
+               launchFullscreen(document.documentElement);
+               setTimeout(function() {
+                  screen[prefix + (prefix === '' ? 'l' : 'L') + 'ockOrientation']('portrait');
+               }, 1);
+            });
+            orientationHandler();
+         }
 		</script>
 	</body>
 </html>
