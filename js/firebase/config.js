@@ -13,21 +13,46 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-// database
-let database = firebase.database();
 
-let name, highscore, city, money, id;
+let name, highscore, city, id;
 
-function send() {
-	add();
-	firebase
-		.database()
-		.ref("person/" + name)
-		.set({
-			NameOfPerson: name,
-			Highscore: highscore,
-			City: city,
-			Money: money,
-			ID: id,
-		});
++function ready() {
+	name = document.getElementById('name');
+	highscore = document.getElementById('best score');
+	city = document.getElementById('name');
+	id = document.getElementById('ident');
+}
+
+function insert() {
+	ready();
+	firebase.database().ref('person/'+id).set({
+		NameOfPerson: name,
+		Highscore: highscore,
+		City: city,
+		ID: id
+	});
+}
+
+function select() {
+	ready();
+	firebase.database().ref('person/'+id).on('value',function(snapshot){
+		name = snapshot.val().NameOfPerson;
+		highscore = snapshot.val().Highscore;
+		city = snapshot.val().City;
+		id = snapshot.val().ID;
+	};
+}
+
+function update() {
+	ready();
+	firebase.database().ref('person/'+id).update('value',function(snapshot){
+		name = snapshot.val().NameOfPerson;
+		highscore = snapshot.val().Highscore;
+		city = snapshot.val().City;
+	};
+}
+
+function del() {
+	ready();
+	firebase.database().ref('person/'+id).remove();
 }
