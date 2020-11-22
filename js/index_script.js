@@ -143,3 +143,24 @@ if (document.location.pathname == "/index.html") {
 	}
 }
 //#endregionEnd Service Workers Api
+
+//#region Navigator.share()
+const shareData = {
+	title: "I played at game Swish Fish!",
+	text: "My points is " + localStorage.getItem("name") + ", can u defeat me?",
+	url: document.url,
+};
+
+const btn = document.querySelector("#share");
+// work only on mobile?
+function shareGame() {
+	console.log("share");
+		try {
+		await navigator.share(shareData);
+		console.log("data shared successfully");
+	} catch (err) {
+		console.log("Error: " + err);
+		alert("u cant share here, "+err);
+	}
+}
+//#endregion

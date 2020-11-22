@@ -18,3 +18,11 @@
 	-ms-border-radius: 100px;
 	-o-border-radius: 100px;
 }
+body {
+	background: #353535;
+	font-family: sans-serif, arial;
+	background-size: cover;
+	text-align: center;
+}
+
+

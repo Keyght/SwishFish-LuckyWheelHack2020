@@ -38,7 +38,6 @@
 						"
 						src="images/paste.png"
 						alt="paste name"
-						onclick="pasteApi()"
 					/>
 				</div>
 				<p id="money">money: <b>0</b></p>
@@ -56,6 +55,20 @@
 				>
 					<b style="margin-bottom: 10px">Records</b>
 				</button>
+
+				<input
+					id="share"
+					type="image"
+					style="
+						max-width: 25px;
+						max-height: 25px;
+						margin-right: -5px;
+						display: inline-block;
+					"
+					src="images/paste.png"
+					alt="paste name"
+					onclick="shareGame()"
+				/>
 			</div>
 
 			<a href="#" id="shop"><img src="images/shop.png" /></a>
@@ -73,13 +86,5 @@
 				</button>
 			</div>
 		</div>
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-auth.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-database.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.1.1/firebase-analytics.js"></script>
-		<script src="js/firebase/config.js"></script>
-		<script src="js/index_script.js"></script>
 	</body>
 </html>

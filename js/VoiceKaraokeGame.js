@@ -124,7 +124,7 @@ let bird = new Image(),
 
 // some variables
 let cnst;
-let gap = 100;
+let gap = 200;
 let constant;
 
 let bX = 10;
@@ -143,7 +143,7 @@ let music = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 fall.src = "sounds/fall.mp3";
-music.src = "sounds/music1.mp3";
+music.src = "sounds/someMusic.mp3";
 music.play();
 // pipe coordinates
 bubl = document.getElementById("bubl");
@@ -199,9 +199,9 @@ function draw() {
 						bY + bird.height - 5 >= pipe[i].y + constant)) ||
 				bY + bird.height >= cvs.height - fg.height
 			) {
-				setTimeout(show_alert(score), 1);
-				location.reload();
-				return;
+				// setTimeout(show_alert(score), 1);
+				// location.reload();
+				// return;
 			}
 			if (pipe[i].x == 5) {
 				score++;
@@ -211,10 +211,8 @@ function draw() {
 		ctx.drawImage(fg, 0, cvs.height - fg.height);
 		// power/MaxPower<1
 		ctx.drawImage(bird, bX, bY);
-		if (bY < 475) bY += gravity;
 		const diff = power / MaxPower;
-		if (bY > 0 && diff > 0) bY = 500 - diff * 500;
-		console.log("draw -> bY", bY);
+		if (bY > 0 && diff > 0) bY = 450 - diff * 475;
 
 		if (diff < 0.1) bubl.style.visibility = "hidden";
 		else {
@@ -232,3 +230,57 @@ function draw() {
 		requestAnimationFrame(draw);
 	}
 }
+
+var lr = document.getElementById("lyric");
+function Karaoke() {
+	lyrics = [
+		{ end: 7, text: "" },
+		{ end: 7, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 10, text: "" },
+		{ end: 11, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 13, text: "" },
+		{ end: 14, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 17, text: "" },
+		{ end: 18, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 20, text: "" },
+		{ end: 21, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 24, text: "" },
+		{ end: 25, text: "Ungh, Hoo-ah Huh!" },
+		{ end: 28, text: "" },
+		{ end: 29, text: "woah" },
+		{ end: 36, text: "Dovahkiin, Dovahkiin! Naal ok zin los vahriin" },
+		{ end: 39, text: "Wah dein vokul mahfaeraak ahst vaal!" },
+		{ end: 42, text: "Ahrk fin norok paal graan" },
+		{ end: 45, text: "Fod nust hon zindro zaan" },
+		{ end: 47, text: "Dovahkiin, fah hin kogaan mu draal!" },
+		{ end: 51, text: "" },
+		{ end: 65, text: "Huzrah nu, kul do od" },
+		{ end: 68, text: "wah aan bok lingrah vod" },
+		{ end: 72, text: "Ahrk fin tey," },
+		{ end: 75, text: "boziik fun, do fin gein!" },
+		{ end: 80, text: "" },
+		{ end: 81, text: "Hua Hua" },
+		{ end: 83, text: "" },
+		{ end: 130, text: "Nuz aan sul, fent alok" },
+		{ end: 132, text: "Fod fin vul dovah nok" },
+		{ end: 136, text: "Fen kos nahlot mahfaeraak ahrk ruz!" },
+		{ end: 136, text: "Fen kos nahlot mahfaeraak ahrk ruz!" },
+		{ end: 144, text: "Paaz Keizaal fen kos stin nol bein Alduin jot!" },
+		{ end: 150, text: "Dovahkiin, Dovahkiin!Naal ok zin los vahriin" },
+		{ end: 155, text: "Wah dein vokul mahfaeraak ahst vaal!" },
+		{ end: 158, text: "Ahrk fin norok paal graan" },
+		{ end: 160, text: "Fod nust hon zindro zaan" },
+		{ end: 162, text: "Dovahkiin, fah hin kogaan mu draal!" },
+	];
+	lyrics.forEach((element) => {
+		setTimeout(() => {
+			chgText(element["text"]);
+		}, element["end"] * 1000);
+	});
+}
+
+function chgText(text) {
+	console.log("chgText -> text", text);
+	lr.innerHTML = text;
+}
+Karaoke();
