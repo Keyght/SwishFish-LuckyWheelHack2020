@@ -109,23 +109,12 @@
 		</script>
 		</script>
 		<script>
-	if (window.DeviceOrientationEvent) {
-	switch(window.orientation) { 
-        case -90:
-        case 90:
-          alert("Please return to the vertical orientation");
-
-          break;
-        default:
-          alert("Please return to the vertical orientation");
-          break;
-    }
-}
-
-window.addEventListener('orientationchange', doOnOrientationChange);
-
-// First launch
-doOnOrientationChange();
+	if ( 'orientation' in screen ) {
+			let locOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation || screen.orientation.lock;
+			locOrientation('landscape');
+		} else {
+			console.log( 'API not supported ' );
+		}
 		</script>
 	</body>
 </html>
