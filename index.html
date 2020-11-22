@@ -77,12 +77,7 @@
 		</script>
 		</script>
 		<script>
-	if ( 'orientation' in screen ) {
-			let locOrientation = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation || screen.orientation.lock;
-			locOrientation('portrait');
-		} else {
-			console.log( 'API not supported ' );
-		}
+	screen.orientation.lock("portrait-primary");
 		</script>
 	</body>
 </html>
