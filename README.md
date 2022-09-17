@@ -17,9 +17,7 @@
 
 ---
 
-<p align="center"> Few lines describing your project.
-    <br>
-</p>
+
 
 ## 📝 Table of Contents
 
@@ -99,14 +97,7 @@ The entire application is available here   https://more02.github.io/Lucky_wheel_
 
 See also the list of [contributors](https://github.com/More02/Lucky_wheel_hack2020/graphs/contributors) who participated in this project.
 ## 📷 photos 
-we will add shop in future
-- ![](https://i.paste.pics/7991ef8bcdeb1669ef00ba7302f51655.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
-- ![](https://i.paste.pics/e597ebe40452c10feb27e6606d2ecc66.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4)
-gameplay
-<p align="center"> 
-   <img src="https://i.paste.pics/550979f71cc7413d10a17b5fbf8c38dc.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4" alt="Project logo"></a>
-</p>
-<p align="center"> 
-   <img src="https://i.paste.pics/ac4998f85d47b870b6c212be7043c6c1.png?trs=31a02cadd005e8a90017d920639cbba02fe47bb0884d3948e66a7b99dbff7de4" alt="Project logo"></a>
-</p>
+|<img src="/readme_images/1.jpg" alt="Game play" width=150></a>|<img src="/readme_images/2.jpg" alt="Game play" width=150></a>|<img src="/readme_images/3.jpg" alt="Game play" width=150></a>|
+|<img src="/readme_images/4.jpg" alt="Game play" width=150></a>|<img src="/readme_images/5.jpg" alt="Game play" width=150></a>|
+
 
