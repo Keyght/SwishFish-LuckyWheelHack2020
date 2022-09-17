@@ -98,6 +98,6 @@ The entire application is available here   https://more02.github.io/Lucky_wheel_
 See also the list of [contributors](https://github.com/More02/Lucky_wheel_hack2020/graphs/contributors) who participated in this project.
 ## 📷 photos 
 |<img src="/readme_images/1.jpg" alt="Game play" width=150></a>|<img src="/readme_images/2.jpg" alt="Game play" width=150></a>|<img src="/readme_images/3.jpg" alt="Game play" width=150></a>|
-|<img src="/readme_images/4.jpg" alt="Game play" width=150></a>|<img src="/readme_images/5.jpg" alt="Game play" width=150></a>|
+|<img src="/readme_images/4.jpg" alt="Game play" width=150></a>|<img src="/readme_images/5.jpg" alt="Game play" width=150></a>|<img src="/readme_images/6.jpg" alt="Game play" width=150></a>|
 
 
