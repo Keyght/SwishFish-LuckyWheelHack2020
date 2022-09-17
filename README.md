@@ -1,9 +1,6 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img src="https://cdn.dribbble.com/users/103608/screenshots/3779175/hackathon.gif" alt="Project logo"></a>
-</p>
+<h1 align="center">The Lucky Wheel Hack 2020</h1>
+<h3 align="center">Swish Fish</h3>
 
-<h3 align="center">The Lucky Wheel hack</h3>
 
 <div align="center">
 
@@ -14,8 +11,11 @@
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
 
 </div>
+<p align="center">
+  <a href="" rel="noopener">
+ <img src="https://cdn.dribbble.com/users/103608/screenshots/3779175/hackathon.gif" alt="Project logo"></a>
+</p>
 
----
 
 
 
